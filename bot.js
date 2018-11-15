@@ -8,12 +8,6 @@ const fetchVideoInfo = require('youtube-info');
 
 const YouTube = require('simple-youtube-api');
 
-const moment = require('moment');
-
-const jimp = require('jimp');
-
-const Canvas = require('canvas');
-
 const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 
 const queue = new Map();
@@ -21,8 +15,6 @@ const queue = new Map();
 const ytdl = require('ytdl-core');
 
 const fs = require('fs');
-
-const db = require('quick.db');
 
 const gif = require("gif-search");
 
@@ -804,10 +796,8 @@ client.on('message', message => { //By |.iiMostafaYT#1001
 صدقه جارية للجميع
 */
  
-const ytdl = require('ytdl-core');
+
 const request = require('request');
-const getYoutubeID = require('get-youtube-id');
-const fetchVideoInfo = require('youtube-info');
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
  
 client.on('message', message => {
