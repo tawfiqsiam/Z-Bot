@@ -22,12 +22,6 @@ const client = new Discord.Client({disableEveryone: true});
 
 const prefix = "$";
 
-const config = {
-    token : "process.env.BOT_TOKEN",
-    prefix : "$",
-    owner : ['492552276326481930'],
-
-
 
 client.on('ready', () => {
 
