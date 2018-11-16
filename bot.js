@@ -21,11 +21,17 @@ const client = new Discord.Client({disableEveryone: true});
 const prefix = "$";
 
 
-client.on('ready', () => {
+client.on('ready', () => {//MRX - DEV
+//MRX - DEV
 
-    client.user.setActivity("$help | Beta V.0.0.1",{type: 'Streaming'})
+  console.log(`${client.user.username} Is Online`);//MRX - DEV
+//MRX - DEV
 
-});
+    client.user.setActivity('$help', {type: 'WATCHING'});//MRX - DEV
+//MRX - DEV
+
+  });
+ 
 
 
 
