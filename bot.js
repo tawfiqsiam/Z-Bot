@@ -1706,7 +1706,6 @@ if(message.content == prefix+"عواصم"){
     prefix : "!",
     owner : ['492552276326481930'],
 };
-var prefix = config.prefix;
 //By Request of [ function ]
 var color = new Discord.RichEmbed().setColor('#000000').setColor('#36393e')
 function e(message, args) {
