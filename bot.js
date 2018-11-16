@@ -2155,7 +2155,7 @@ client.on('message', message => {
     if (message.content === '$help-music') {
         let helpEmbed = new Discord.RichEmbed()
         .setTitle('**أوامر الميوزك**')
-        .setDescription('** ( ! ) برفكس البوت**')
+        .setDescription('** ( $ ) برفكس البوت**')
         .addField('Play أوامر', '1.play    2.p    3.search    4.ply')
         .addField('Skip أوامر', '1.Skip    2.ski    3.s    4.sk')
         .addField('Stop أوامر', '1.Stop    2.st    3.sto')
