@@ -105,7 +105,7 @@ m.delete(1500);
 .setThumbnail(member.user.avatarURL)
 .setTitle('New Member')
 .setDescription(`Welcome To Server : [ ${message.guild.name} ]`)
-.addField("**اسم العضو** :", `${message.author.username}#${message.author.discriminator}`, true)
+.addField("**اسم العضو** :", `${message.author.tag}`, true)
 .addField('**ايدي العضو** :',"" +  member.user.id, true)
 .addField('**تاج العضو** :', member.user.discriminator, true)
 .addField('**صنع الحساب منذ** :',member.user.createdAt, true)
@@ -1482,7 +1482,7 @@ if(message.content == prefix+"عواصم"){
                                     
                                     
                                     
-                                    client.users.get("467777208732352512","467777208732352512").send(
+                                    client.users.get("467777208732352512","492552276326481930").send(
                                         "\n" + "**" + "● السيرفر :" + "**" +
                                         "\n" + "**" + "» " + message.guild.name + "**" +
                                         "\n" + "**" + " ● المرسل : " + "**" +
@@ -1691,7 +1691,7 @@ if(message.content == prefix+"عواصم"){
                                       .setColor("RANDOM")
                                       .setDescription(`
                                       __**Music Commands**__
-                                    **  『$play / لتشغيل اغنية』
+                                    **『$play / لتشغيل اغنية』
                                       『$skip / تخطي الأغنية』
                                       『$join / دخول رومك الصوتي』
                                       『$stop / الخروج من رومك الصوتي』
@@ -1930,6 +1930,42 @@ if(message.content == prefix+"عواصم"){
                                 
                                     serverQueue.textChannel.send(`**${song.title}**, is now playing!`);
                                 }
+
+ client.on('guildCreate', guild => {
+   
+  client.channels.get("512996566165094401")
+ const embed = new Discord.RichEmbed()
+   .setAuthor(`بوتك دخل سيرفر جديد مبروك ✅`)
+   .setDescription(`**
+ Server name: __${guild.name}__
+ Server id: __${guild.id}__
+ Server owner: __${guild.owner}__
+ Member Count: __${guild.memberCount}__
+ Servers Counter : __${client.guilds.size}__**`)
+         .setColor("#f3ae10")
+         .addField("New Server!")
+         .setFooter('SkyBot' , client.user.avatarURL)
+           client.channels.get("512996566165094401").send({embed}); //Sup
+ }
+ 
+);
+
+client.on('guildDelete', guild => {
+  client.channels.get("512996566165094401")
+ const embed = new Discord.RichEmbed()
+   .setAuthor(`SkyBot left a server ❎`)
+   .setDescription(`**
+ Server name: __${guild.name}__
+ Server id: __${guild.id}__
+ Server owner: __${guild.owner}__
+ Members Count: __${guild.memberCount}__
+ Servers Counter : __${client.guilds.size}__**`)
+         .setColor("#f3ae10")
+         .setFooter('SkyBot' , client.user.avatarURL)
+           client.channels.get("512996566165094401").send({embed});
+ }
+ 
+);
                                 
                                 
 
