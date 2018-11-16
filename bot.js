@@ -2150,6 +2150,25 @@ client.on('guildDelete', guild => {
  }
  
 );
+
+client.on('message', message => {
+    if (message.content === '$help-music') {
+        let helpEmbed = new Discord.RichEmbed()
+        .setTitle('**أوامر الميوزك**')
+        .setDescription('** ( ! ) برفكس البوت**')
+        .addField('Play أوامر', '1.play    2.p    3.search    4.ply')
+        .addField('Skip أوامر', '1.Skip    2.ski    3.s    4.sk')
+        .addField('Stop أوامر', '1.Stop    2.st    3.sto')
+        .addField('Leave أوامر', '1.leave    2.disconnect    3.l')
+        .addField('Volume أوامر', '1.volume    2.vol    3.v')
+        .addField('Queue أوامر', '1.queue    2.q    2.qu    4.que')
+        .addField('Pause أوامر', '1.pause    2.pa    3.pau    4.paus')
+        .addField('Resume أوامر', '1.resume    2.r    3.continue    4.res')
+        .addField('Repeat أوامر', '1.repeat    2.rpt')
+		.addField('Loop أوامر', '1.loop    2.lo')
+      message.channel.send(helpEmbed);
+    }
+});
                                 
                                 
 
