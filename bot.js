@@ -2001,7 +2001,7 @@ client.on('message', async message => {
 		if (message.guild.members.get(message.member.id).voiceChannel.id !== message.guild.members.get(client.user.id).voiceChannel.id) return err(message , `You Should Be in My Voice Channel To Use My Commands.`)
 		if (!args[1]) return V(message,`The current volume is ${serverQueue.volume}%`);
 		args[1] = parseInt(args[1]);
-		if (args[1] > 100 || args[1]<2) return err(message, `Only allowed from 2 - 100`)
+		if (args[1] > 200 || args[1]<2) return err(message, `Only allowed from 2 - 200`)
 		if (isNaN(args[1])) return err(message, `Only numbers are allowed.`)
 		if (args[1] == serverQueue.volume) return err(message, `My Volume is already ${serverQueue.volume}%`)
 		serverQueue.volume = args[1];
