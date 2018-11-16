@@ -1135,40 +1135,7 @@ client.on('guildCreate', guild => {
 
 
 
-                                 client.on('message' , message => {
-                                    var prefix = "$"
-                                    
-                                    if (message.author.bot) return;
-                                    if (message.content.startsWith(prefix + "contact")) {
-                                    if (!message.channel.guild) return;
-                                    
-                                    
-                                    
-                                    let args = message.content.split(" ").slice(1).join(" ");
-                                    
-                                    
-                                    
-                                    client.users.get("467777208732352512","492552276326481930").send(
-                                        "\n" + "**" + "● السيرفر :" + "**" +
-                                        "\n" + "**" + "» " + message.guild.name + "**" +
-                                        "\n" + "**" + " ● المرسل : " + "**" +
-                                        "\n" + "**" + "» " + message.author.tag + "**" +
-                                        "\n" + "**" + " ● الرسالة : " + "**" +
-                                        "\n" + "**" + args + "**")
-                                    
-                                    let embed = new Discord.RichEmbed()
-                                         .setAuthor(message.author.username, message.author.avatarURL)
-                                         .setDescription(':mailbox_with_mail: تم ارسال الرسالة الى صاحب البوت بنجاح')
-                                         .setThumbnail(message.author.avatarURL)
-                                         .setFooter("By : .iiMosTaFaYT#1001")
-                                                                                    
-                                    
-                                    message.channel.send(embed);
-                                    
-                                    
-                                    }
-                                        
-                                    });    
+                                 
                                     
                                     
                                     
