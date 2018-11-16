@@ -27,10 +27,6 @@ const config = {
     prefix : "$",
     owner : ['492552276326481930'],
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-
 
 
 client.on('ready', () => {
