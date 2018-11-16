@@ -626,60 +626,11 @@ client.on('message', message => {
                         });  
 
                          
-var temp = {
- 
-}
- 
-client.on("message",(message) => {
-    if (message.channel.type !== "text") return;
-    if (!message.content.startsWith(prefix)) return;
-        if(message.content.startsWith(prefix + "temp on")) {
-            if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply("** You Don't Have Permission `Manage channels` To Do This Command");
-            temp[message.guild.id] = {
-                work : true,
-                channel : "Not Yet"
-            };
-            message.guild.createChannel("اضغط لصنع روم مؤقت", 'voice').then(c => {
-                c.setPosition(1);
-                temp[message.guild.id].channel = c.id
-                message.channel.send("** Done.**");
-            });
-        if(message.content.startsWith(prefix + "temp off")) {
-            if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply("** You Don't Have Permission `Manage channels` To Do This Command");
-        message.guild.channels.get(temp[message.guild.id]).delete();
-            temp[message.guild.id] = {
-                work : false,
-                channel : "Not Yet"
-            };
-        message.channel.send("** Done.**");
-    };
-}})
-client.on("voiceStateUpdate", (o,n) => {
-    if (!temp[n.guild.id]) return;
-    if (temp[n.guild.id].work == false) return;
-    if (n.voiceChannelID == temp[n.guild.id].channel) {
-        n.guild.createChannel(n.user.username, 'voice').then(c => {
-            n.setVoiceChannel(c);
-            c.overwritePermissions(n.user.id, {
-                CONNECT:true,
-                SPEAK:true,
-                MANAGE_CHANNEL:true,
-                MUTE_MEMBERS:true,
-                DEAFEN_MEMBERS:true,
-                MOVE_MEMBERS:true,
-                VIEW_CHANNEL:true  
-            });
-        })
-    };
-    if (!o.voiceChannel) return;
-    if (o.voiceChannel.name == o.user.username) {
-        o.voiceChannel.delete();
-    };
-});
+
 
 
 client.on('message', msg => {
-    if(msg.content.startsWith('$invitebot')) {
+    if(msg.content.startsWith('$invitebots')) {
     if(msg.channel.type === 'dm') return;
 const user = msg.mentions.users.first();
 if(!user) return msg.channel.send('``' + '**قم بتحديد بوت**' + '``')
@@ -811,7 +762,7 @@ client.on('message', message => { //By |.iiMostafaYT#1001
   
   
   client.on('message' , async message => {
-	  var prefix = "-";
+	  var prefix = "$";
          if(message.content.startsWith(prefix + "emoji")) {
             let args = message.content.split(" ").slice(1);
     if (args.length < 1) {
@@ -889,7 +840,7 @@ client.on('message', message => {
 var embed = new Discord.RichEmbed()
 .setColor('RANDOM')
  .setThumbnail(message.author.avatarURL) 
-.addField('Speed BOT' ,
+.addField('SkyBot.' ,
 `${Za7f[Math.floor(Math.random() * Za7f.length)]}`)
 message.channel.sendEmbed(embed);
 console.log('[38ab] Send By: ' + message.author.username)
@@ -1098,17 +1049,7 @@ return;
 
 
 
-client.on('message', message => {
-	var prefix = "$";
-if (message.content.startsWith(prefix + 'tag')) {
-    let args = message.content.split(" ").slice(1);
-if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');  
 
-    figlet(args.join(" "), (err, data) => {
-              message.channel.send("```" + data + "```")
-           })
-}
-});
 
 
  
@@ -1167,129 +1108,13 @@ client.on('guildCreate', guild => {
   });
 
 
-  var fkk =[
-    {f:"فكك بسم الله الرحمن الرحيم",k:"ب س م ا ل ل ه ا ل ر ح م ن ا ل ر ح ي م"},
-    {f:"فكك باص",k:"ب ا ص"},
-    {f:"فكك عربة ",k:"ع ر ب ة"},
-    {f:"فكك سيارة",k:"س ي ا ر ة"},
-    {f:"فكك سيرفرنا احلى سيرفر",k:"س ي ر ف ر ن ا ا ح ل ى س ي ر ف ر"},
-    {f:"فكك العنود ",k:"ا ل ع ن و د"},
-    {f:"فكك المستتكعكبتيه",k:"ا ل م س ت ت ك ع ك ب ت ي ه"},
-    {f:"فكك دحوم",k:"د ح و م"},
-    {f:"فكك اونرنا احلى اونر",k:"ا و ن ر ن ا ا ح ل ى ا و ن ر"},
-    {f:"فكك الحياة حلوة",k:"ا ل ح ي ا ة ح ل و ة"},
-    {f:"فكك كازخستان ",k:"ك ا ز خ س ت ا ن"},
-    {f:"لحم الحمام حلال ولحم الحمار حرام ",k:"ل ح م ا ل ح م ا م ح ل ا ل و ل ح م ا ل ح م ا ر ح ر ا م"},
-    {f:"فكك استونيا ",k:"ا س ت و ن ي ا"},
-    {f:"فكك لقمة وجغمه ",k:"ل ق م ة و ج غ م ه"},
-    {f:"فكك زنديق  ",k:"ز ن د ي ق"},
-    {f:"فكك استراليا ",k:"ا س ت ر ا ل ي ا"},
-    {f:"فكك سوريا ",k:"س و ر ي ا"},
-    {f:"فكك الاردن ",k:"ا ل ا ر د ن"},
-    {f:"فكك طماطم ",k:"ط م ا ط م"},
-    {f:"فكك سارة ",k:"س ا ر ة"},
-    {f:"فكك دراجون ",k:"د ر ا ج و ن"},
-    {f:"فكك سيرفر ",k:"س ي ر ف ر"},
-    {n:"فكك الجبل",m:"ا ل ج ب ل"},
-    {n:"فكك هضبة",m:"ه ض ب ة"},
-    {n:"فكك خواطر",m:"خ و ا ط ر"},
-    {n:"فكك ارحبو",m:"ا ر ح ب و"},
-    {n:"فكك اطنخ سيرفر",m:"ا ط ن خ س ي ف ر"},
-    {n:"فكك احبك",m:"ا ح ب ك"},
-    {n:"فكك سبرايز",m:"س ب ر ا ي ز"},
-    {n:"فكك ولي على أمتك",m:"و ل ي ع ل ى أ م ت ك"},
-    {n:"فكك الو محد",m:"ا ل و م ح م د"},
-
-
-];
-
-
-client.on("message", async message => {
-   var prefix = "$";
-if(message.content == prefix+"فكك"){
-    if(UserBlocked.has(message.guild.id)) return message.channel.send("هناك جلسة .")
-    UserBlocked.add(message.guild.id)
-    var ask = fkk[Math.floor(Math.random() * fkk.length)];
-    let embed = new Discord.RichEmbed()
-    .setTitle('لعبة فكك')
-    .setAuthor(message.author.username, message.author.avatarURL)
-    .setColor("RANDOM")
-    .setDescription(ask.f);
-    message.channel.sendEmbed(embed).then(msg=> msg.delete(200000))
-    const msgs = await message.channel.awaitMessages(msg => msg.author.id !== client.user.id ,{maxMatches:1,time:100000});
-        UserBlocked.delete(message.guild.id)
-    msgs.forEach(result => {
-       if(result.author.id == client.user.id) return;
-       if(result.content == "فكك") return
-       if(result.content == ask.k){
-
-         let embeds = new Discord.RichEmbed()
-         .setTitle(':white_check_mark: اجابة صحيحة')
-         .setAuthor(message.author.username, message.author.avatarURL)
-         .setColor("RANDOM")
-         .setDescription(`**${result.author.username}** الإجابة صحيحة`);
-            message.channel.sendEmbed(embeds);                return;
-       } else {
-
-                           var embedx = new Discord.RichEmbed()
-         .setTitle(':x:خطاء')
-         .setAuthor(message.author.username, message.author.avatarURL)
-         .setColor("RANDOM")
-         .setDescription(`**${result.author.username}** الإجابة خاطئة`);
-
-            message.channel.sendEmbed(embedx);
-       }
- });
-}
-});
+  
 
 
 
 
 
-client.on("message", async message => {
-var prefix = "$";
-var aoasm =[
-{q:"ما عاصمة **المغرب**",a:"الرباط"},
-{q:"ما عاصمة **افغانستان**",a:"كبل"},
-{q:"ما عاصمة ** البانيا**",a:"تيران"},
-{q:"ما عاصمة **الجزائر **",a:"الجزائر"},
-{q:"ما عاصمة ** **",a:"الجزائر"},
-{q:"ما عاصمة **اندورا لا فيلا **",a:"اندورا"},
-{q:"ما عاصمة **انجولا**",a:"لواندا"},
-{q:"ما عاصمة **انتيجوا وباربودا**",a:"سان جونز"},
-{q:"ما عاصمة **الارجنتين**",a:"بوينس ايرس"},
-{q:"ما عاصمة **ارمينيا**",a:"يريفان"},
-{q:"ما عاصمة ** مصر**",a:"القاهرة"},
-{q:"ما عاصمة ** استراليا**",a:"كانبرا"},
-{q:"ما عاصمة **النمسا**",a:"فيينا"},
-{q:"ما عاصمة ** اذربيجان**",a:"باكو"},
-{q:"ما عاصمة **جزر البهاما**",a:"ناساو"},
-{q:"ما عاصمة **البحرين**",a:"المنامة"},
-{q:"ما عاصمة ** بنجلاد��ش**",a:"دكـا"},
-{q:"ما عاصمة **باربادوس **",a:"بريدجتاون"},
-{q:"ما عاصمة **بيلا روسيا**",a:"مينسك"},
-{q:"ما عاصمة ** بلجيكا**",a:"بروكسل"},
-{q:"ما عاصمة ** بيليز**",a:"بلوم بان"},
-{q:"ما عاصمة ** بنين**",a:"بورتو نوفو"},
-{q:"ما عاصمة ** بوتان**",a:"ثيمفو"},
-{q:"ما عاصمة **بوليفيا **",a:"لاباز"},
-{q:"ما عاصمة ** البوسنة والهرسك**",a:"سراييفو"},
-{q:"ما عاصمة ** بوتسوانا**",a:"جابورون"},
-{q:"ما عاصمة ** البرازيل**",a:"برازيليا"},
-{q:"ما عاصمة ** بروناى**",a:"بندر سرى بيجاوان"},
-{q:"ما عاصمة ** بلغاريا**",a:"صوفيا"},
-{q:"ما عاصمة ** بوركينا فاسو**",a:"واجادوجو"},
-{q:"ما عاصمة **بوروندى **",a:"بوجومبورا"},
-{q:"ما عاصمة **كمبوديا **",a:"بنوم بنـه"},
-{q:"ما عاصمة ** الكاميرون**",a:"ياوندى"},
-{q:"ما عاصمة ** كندا**",a:"اوتاوا"},
-{q:"ما عاصمة ** الرأس الاخضر**",a:"برايا"},
-{q:"ما عاصمة **تشاد **",a:"نجامينا"},
-{q:"ما عاصمة ** شيلى**",a:"سانتياجو"},
-{q:"ما عاصمة **الصين **",a:"بكين"},
-{q:"ما عاصمة ** **",a:"مورونى"},
-{q:"ما عاصمة **كوستاريكا **",a:"سان خوسيه"},
+"سان خوسيه"},
 {q:"ما عاصمة ** كوت ديفوار**",a:"ابيدجان"},
 {q:"ما عاصمة **كرواتيا **",a:"زغرب"},
 {q:"ما عاصمة ** كوبا**",a:"هافانا"},
@@ -1300,54 +1125,6 @@ var aoasm =[
 {q:"ما عاصمة ** دومينيكا**",a:"روسيو"},
 {q:"ما عاصمة **الدومينيكان **",a:"سان دومينجو"},
 {q:"ما عاصمة **تيمور الشرقية **",a:"ديلى"},
-{q:"ما عاصمة **قطر  **",a:"الدوحة"},
-{q:"ما عاصمة **السعودية  **",a:"الرياض"},
-{q:"ما عاصمة **سوريا  **",a:"دمشق"},
-{q:"ما عاصمة **تركيا  **",a:"انقرة"},
-{q:"ما عاصمة **العراق  **",a:"بغداد"},
-{q:"ما عاصمة **البنان  **",a:"بيروت"},
-{q:"ما عاصمة **فلسطين  **",a:"القدس"},
-{q:"ما عاصمة **امريكا  **",a:"واشنطن"},
-{q:"ما عاصمة **الاردن  **",a:"عمان"},    
-{q:"ما عاصمة **السودان  **",a:"خرطوم"},
-{q:"ما عاصمة **الما��يا  **",a:"برلين"},
-{q:"ما عاصمة **كندا  **",a:"اوتاوا"},
-{q:"ما عاصمة **البرازيل  **",a:"برازيليا"},
-];
-if(message.content == prefix+"عواصم"){
-    if(UserBlocked.has(message.guild.id)) return message.channel.send("هناك جلسة .")
-    UserBlocked.add(message.guild.id)
-    var ask = aoasm[Math.floor(Math.random() * aoasm.length)];
-    let embed = new Discord.RichEmbed()
-    .setTitle('سؤال عواصم')
-    .setAuthor(message.author.username, message.author.avatarURL)
-    .setColor("RANDOM")
-    .setDescription(ask.q);
-    message.channel.sendEmbed(embed).then(msg=> msg.delete(20000))
-    const msgs = await message.channel.awaitMessages(msg => msg.author.id !== client.user.id ,{maxMatches:1,time:10000});
-        UserBlocked.delete(message.guild.id)
-    msgs.forEach(result => {
-       if(result.author.id == client.user.id) return;
-       if(result.content == "عاصمة") return
-       if(result.content == ask.a){
-         let embeds = new Discord.RichEmbed()
-         .setTitle(':white_check_mark: اجابة صحيحة')
-         .setAuthor(message.author.username, message.author.avatarURL)
-         .setColor("RANDOM")
-         .setDescription(`**${result.author.username}** الإجابة صحيحة`);
-            message.channel.sendEmbed(embeds);                return;
-       } else {
-
-                              var embedx = new Discord.RichEmbed()
-            .setTitle(':x:خطاء')
-            .setAuthor(message.author.username, message.author.avatarURL)
-            .setColor("RANDOM")
-            .setDescription(`**${result.author.username}** الإجابة خاطئة`);
-            message.channel.sendEmbed(embedx);
-       }
- });
-}
-});
 
 
 
@@ -1388,35 +1165,6 @@ if(message.content == prefix+"عواصم"){
                                     });    
                                     
                                     
-                                    client.on('message', message => { 
-                                        var prefix ="$";
-                                               if (message.content.startsWith(prefix + "user")) {
-                                         var args = message.content.split(" ").slice(1);
-                                         let user = message.mentions.users.first();
-                                         var men = message.mentions.users.first();
-                                            var heg;
-                                            if(men) {
-                                                heg = men
-                                            } else {
-                                                heg = message.author
-                                            }
-                                          var mentionned = message.mentions.members.first();
-                                             var h;
-                                            if(mentionned) {
-                                                h = mentionned
-                                            } else {
-                                                h = message.member
-                                            }
-                                                   moment.locale('ar-TN');
-                                          var id = new  Discord.RichEmbed()
-                                          .setAuthor(message.author.username, message.author.avatarURL) 
-                                        .setColor("#707070")
-                                        .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
-                                        .addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)               
-                                        .setFooter(`SkyBot.`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')                                 
-                                        .setThumbnail(heg.avatarURL);
-                                        message.channel.send(id)
-                                    }       });
                                     
                                     
                                     client.on('message', message => {
@@ -1487,110 +1235,12 @@ if(message.content == prefix+"عواصم"){
                             message.channel.send(image)
                                 }
                             });       
-                       client.on("message", message => {
-                                    var prefix = "$";
-                                 if (message.content === "$help") {
-                                     message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
-                                  const embed = new Discord.RichEmbed() 
-                                      .setColor("RANDOM")
-                                      .setDescription(`
-                                      وصف عن البوت
-                                      :gem: البوت فيه كثير ميزات حلوة و جميلة
-                                      
-                                       :rocket: البوت يعمل 24 ساعه
-                                      
-                                       :up: خدمة سبورت 24/7
-                                      
-                                       :free: البوت مجاني %100
-                                `)
-                                   message.author.sendEmbed(embed)
-                                    
-                                   }
-                                   }); 
+                       
                                 
-                                
-                                   client.on("message", message => {
-                                    var prefix = "$";
-                                 if (message.content === "$help") {
-                                     message.channel.send(' ');
-                                  const embed = new Discord.RichEmbed() 
-                                      .setColor("RANDOM")
-                                      .setDescription(`
-                                      __**Administrative Commands**__
-                                    **  『$move @user / لسحب الشخص الى روومك』
-                                      『$bc / رسالة جماعية الى كل اعضاء السيرفر』
-                                      『$hchannel / اخفاء الشات』
-                                      『$schannel / اضهار الشات المخفية』
-                                      『$clear / مسح الشات』
-                                      『$mute @user <reason> / اعطاء العضو ميوت لازم رتبة <Muted>』
-                                      『$unmute @user / لفك الميوت عن الشخص 』
-                                      『$kick @user <reason> / طرد الشخص من السيرفر』
-                                      『$ban @user <reason> / حضر الشخص من السيرفر』
-                                      『$mutechannel / تقفيل الشات』
-                                      『$unmutechannel / فتح الشات』
-                                      『$ct <name> / انشاء شات』
-                                      『$cv <name> / انشاء رووم فويس』**
-                                      
-                                `)
-                                   message.author.sendEmbed(embed)
-                                    
-                                   }
-                                   }); 
+                                   
                                 
                                 
                                    
-                                   client.on("message", message => {
-                                    var prefix = "$";
-                                 if (message.content === "$help") {
-                                     message.channel.send('');
-                                  const embed = new Discord.RichEmbed() 
-                                      .setColor("RANDOM")
-                                      .setDescription(`
-                                      __**General Commands**__
-                                      **『$server / يعرض لك معلومات عن السيرفر』
-                                      『$bot / يعرض لك كل معلومات البوت』
-                                      『$fm / عرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص』
-                                      『$id /  معلومات عنك』
-                                      『$allbots /  لعرض جميع البوتات الي بالسيرفر』
-                                      『$savatar / صورة السيرفر』
-                                      『$avatar / صورتك او صورة الي تمنشنة』
-                                      『$inv / لدعوة البوت الى سيرفرك』
-                                      『$support / سيرفر الدعم』
-                                      『$contact / ارسال اقتراح او لمراسلة صاحب البوت』**
-                                      
-                                      
-                                `)
-                                   message.author.sendEmbed(embed)
-                                    
-                                   }
-                                   }); 
-                                
-                                
-                                   client.on("message", message => {
-                                    var prefix = "$";
-                                 if (message.content === "$help") {
-                                     message.channel.send('');
-                                  const embed = new Discord.RichEmbed() 
-                                      .setColor("RANDOM")
-                                      .setDescription(`
-                                      __**Music Commands**__
-                                    **『$play / لتشغيل اغنية』
-                                      『$skip / تخطي الأغنية』
-                                      『$join / دخول رومك الصوتي』
-                                      『$stop / الخروج من رومك الصوتي』
-                                      『$pause / ايقاف الاغنية مؤقتا』
-                                      『$np / اظهار الاغنية اللي انت مشغلها حاليا』
-                                      『$resume / تكملة الاغنية』
-                                      『$queue  / اظهار قائمة التشغيل』**
-                                `)
-                                   message.author.sendEmbed(embed)
-                                    
-                                   }
-                                   }); 
-
-
-                                
-
  client.on('guildCreate', guild => {
    
   client.channels.get("512996566165094401")
@@ -1627,7 +1277,113 @@ client.on('guildDelete', guild => {
  
 );
 
-                                
-                                
+   client.on("message", message => {
+    if (message.content === "$help") {
+      message.channel.send('**تم الارسال في الخاص**')
+     const embed = new Discord.RichEmbed() 
+         .setColor("#00FF00")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`
+         **بوت فيه مميزات كثيره و جميله :gem: 
+         البوت يعمل 24 ساعه :rocket: 
+         البوت مجاني :free:** `)
+   message.author.sendEmbed(embed)
+   
+   }
+   });                             
+              
 
+
+client.on("message", message => {
+    if (message.content === "$help") {
+     const embed = new Discord.RichEmbed() 
+         .setColor("#00FF00")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`
+         __**« Admin Orders »**__
+**❖$move @user ~  لسحب الشخص الى روومك
+❖$bc ~ رسالة جماعية الى كل اعضاء السيرفر
+❖$role ~ لأعطاء رتبة
+❖$hchannel ~ اخفاء الشات
+❖$schannel ~ اضهار الشات المخفية
+❖$clear ~ مسح الشات
+❖$mute @user <reason> ~ اعطاء العضو ميوت لازم رتبة <Muted>
+❖$unmute @user ~ لفك الميوت عن الشخص 
+❖$kick @user <reason> ~ طرد الشخص من السيرفر
+❖$ban @user <reason> ~ حضر الشخص من السيرفر
+❖$mutechannel ~ تقفيل الشات
+❖$unmutechannel ~ فتح الشات
+❖$dc ~ مسح كل الرومات
+❖$dr ~ <مسح كل الرانكات <لازم تكون رانك البوت فوق كل الرانكات
+❖$ct <name> ~ انشاء شات
+❖$cv <name> ~ انشاء رووم فويس
+❖$delete <name> ~ مسح الشات او الرووم فويس
+❖$ccolors <number> ~ ينشا لك الوان مع كم الوان تبي**
+         `)
+   message.author.sendEmbed(embed)
+   
+   }
+   }); 
+
+client.on("message", message => {
+    if (message.content === "$help") {
+     const embed = new Discord.RichEmbed() 
+         .setColor("#00FF00")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`
+         __**« General Orders »**__
+**❖$allbots ~ لعرض جميع البوتات الي بالسيرفر
+❖$server ~يعرض لك معلومات عن السيرفر
+❖$bot ~ يعرض لك كل معلومات البوت
+❖$count ~ يعرض لك عدد الاشخاص بالسيرفر بدون بوتات
+❖$invites ~ يعرض لك  عدد انفايتاتك بالسيرفر 
+❖$emojilist ~ يعرض لك كل الايموجيات الي بالسيرفر
+❖$say ~ يكرر الكلام الي تكتبو
+❖$savatar ~ صورة السيرفر
+❖$fm ~ يعرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص
+❖$id ~ معلومات عنك
+❖$avatar ~ صورتك او صورة الي تمنشنو
+❖$embed ~ يكرر الي تقولو بشكل حلو
+❖$emoji <any things> ~ لتحويل اي كلمه تقولها الي ايموجي
+❖$inv ~ لدعوة البوت الى سيرفرك
+❖$support ~ سيرفر الدعم
+❖$contact ~ ارسال اقتراح او لمراسلة صاحب البوت
+❖$invitebots ~ لدعوت اي بوت انت تبيه** `)
+   message.author.sendEmbed(embed)
+   
+   }
+   });
+
+
+client.on("message", message => {
+    if (message.content === "$help") {
+     const embed = new Discord.RichEmbed() 
+         .setColor("#00FF00")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`
+         __**« Games Orders **__
+**❖$rps ~ حجر ورقة مقص
+❖$quas ~ اسئلة عامه   
+❖$فوائد ونصائح  ~ هل تعلم
+❖$mcskin <name> ~ يظهر سكنك في ماين كرافت
+❖$لعبة مريم ~ مريم
+❖$يعطيك عقابات قاسية ~ عقاب**   `)
+   message.author.sendEmbed(embed)
+   
+   }
+   }); 
+
+client.on('message', message => {
+    if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('-bcall')){
+if(!message.author.id === "492552276326481930"."467777208732352512") return;
+message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+
+
+});
 client.login(process.env.BOT_TOKEN);
