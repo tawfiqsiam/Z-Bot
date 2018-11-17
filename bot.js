@@ -1501,7 +1501,7 @@ client.on('message',async message => {
     }
   });
 
-@.iiMosTaFaYT 
+
 client.on('message', message => {
   const port = '25565'
   if(message.content.startsWith('$mcstats')) {
