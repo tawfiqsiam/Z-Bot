@@ -4,7 +4,11 @@ const Util = require('discord.js');
 
 const getYoutubeID = require('get-youtube-id');
 
-const Canvas = require("canvas")
+const Canvas = require("canvas");
+
+const convert = require("hh-mm-ss");
+
+const dateFormat = require('dateformat');
 
 const fetchVideoInfo = require('youtube-info');
 
