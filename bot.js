@@ -492,7 +492,7 @@ client.on('message', message => {
       .setAuthor(message.author.username, message.guild.iconrURL)
         .setColor(0x164fe3)
         .setImage(message.guild.iconURL)
-        .setURL(message.guild.iconrURL)
+        .setURL(message.guild.iconURL)
                         .setTimestamp()
     
        message.channel.send({embed});
@@ -646,7 +646,7 @@ client.on('message', message => {
 
 
 client.on('message', msg => {
-    if(msg.content.startsWith('$invitebots')) {
+    if(msg.content.startsWith('$invitebot')) {
     if(msg.channel.type === 'dm') return;
 const user = msg.mentions.users.first();
 if(!user) return msg.channel.send('``' + '**قم بتحديد بوت**' + '``')
@@ -1137,7 +1137,7 @@ client.on('guildCreate', guild => {
                                                 if(!message.channel.guild) return;
                                             let embed = new Discord.RichEmbed()
                                             .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
-                                            .setTitle(`:small_orange_diamond: اضغط هنا `)
+                                            .setTitle(`:small_orange_diamond: Invite Link `)
                                             .setURL(`https://discordapp.com/oauth2/authorize?client_id=512706922487742466&permissions=2080374975&scope=bot`)
                                             .setThumbnail(" https://cdn.discordapp.com/avatars/377904849783750667/6c76e412f18c142dfd711d05fb363869.png?size=2048")        
                                          message.channel.sendEmbed(embed);
