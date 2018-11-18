@@ -98,61 +98,8 @@ msg.delete();
 }
 });
 
-client.on("message", message => {
-    var prefix = "$";// البرفكس
-if(message.content.startsWith(prefix + "setwlc")) {
-    let args = message.mentions.channels.first();
-        if(!args) message.channel.send("** منشن روم . :x:**").then(m => {    
-m.delete(1500);
-})
-            if(!message.guild.member(message.author.id).hasPermission("MANAGE_CHANNELS")) return message.channel.send("**ليس لديك صلاحيات . :x:**");
-                    message.channel.send(`**${args}. لقد تم شغل الروم هذا للترحيب.**`);
-                client.on("guildMemberAdd", (member) => {
-                        if(member.user.bot) return;
-                     var embed = new Discord.RichEmbed()
-.setAuthor(member.user.username, member.user.avatarURL)
-.setThumbnail(member.user.avatarURL)
-.setTitle('New Member')
-.setDescription(`Welcome To Server : [ ${message.guild.name} ]`)
-.addField("**اسم العضو** :", `${message.author.tag}`, true)
-.addField('**ايدي العضو** :',"" +  member.user.id, true)
-.addField('**تاج العضو** :', member.user.discriminator, true)
-.addField('**صنع الحساب منذ** :',member.user.createdAt, true)
-.addField('**انت العضو رقم**',`**[ ${member.guild.memberCount} ]**`,true)
-.setColor('GREEN')
-.setFooter(member.guild.name, member.guild.iconURL, true)
-                     
-args.send({embed : embed});
-                });
-}
-});
 
-client.on("message", message => {
-    var prefix = "$";//البرفكس
-if(message.content.startsWith(prefix + "setout")) {
-    let args = message.mentions.channels.first();
-        if(!args) message.channel.send("** منشن روم . :x:**");
-            if(!message.guild.member(message.author.id).hasPermission("MANAGE_CHANNELS")) return message.channel.send("**ليس لديك صلاحيات . :x:**");
-                    message.channel.send(`**${args}. لقد تم شغل الروم هذا للترحيب.**`);
-                client.on("guildMemberRemove", (member) => {
-                        if(member.user.bot) return;
-                     var embed = new Discord.RichEmbed()
-.setAuthor(member.user.username, member.user.avatarURL)
-.setThumbnail(member.user.avatarURL)
-.setTitle('Out Member')
-.setDescription(`GoodBye From Server : [ ${message.guild.name} ]`)
-.addField("**اسم العضو** :", `${message.author.username}#${message.author.discriminator}`, true)
-.addField('**ايدي العضو** :',"" +  member.user.id, true)
-.addField('**تاج العضو** :', member.user.discriminator, true)
-.addField('**صنع الحساب منذ** :',member.user.createdAt, true)
-.addField('**انت العضو رقم**',`**[ ${member.guild.memberCount} ]**`,true)
-.setColor('RED')
-.setFooter(member.guild.name, member.guild.iconURL, true)
-                     
-args.send({embed : embed});
-                });
-}
-});
+
 
 
 client.on('message', function(msg) {
@@ -666,61 +613,9 @@ message.channel.send(`**# ${args}**`); // محطوط # عشان محد يستخ�
 });
 
 
-client.on("message", (message) => {
-    /// ALPHA CODES
-   if (message.content.startsWith("$ticket")) {     /// ALPHA CODES
-        const reason = message.content.split(" ").slice(1).join(" ");     /// ALPHA CODES
-        if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`لازم تسوي رتبه اسمه Support Team`);
-        if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
-        message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
-            let role = message.guild.roles.find("name", "Support Team");
-            let role2 = message.guild.roles.find("name", "@everyone");
-            c.overwritePermissions(role, {
-                SEND_MESSAGES: true,
-                READ_MESSAGES: true
-            });    /// ALPHA CODES
-            c.overwritePermissions(role2, {
-                SEND_MESSAGES: false,
-                READ_MESSAGES: false
-            });
-            c.overwritePermissions(message.author, {
-                SEND_MESSAGES: true,
-                READ_MESSAGES: true
-            });
-            message.channel.send(`:white_check_mark: **تم إنشاء تذكرتك ، #${c.name}.**`);
-            const embed = new Discord.RichEmbed()
-                .setColor(0xCF40FA)
-                .addField(`مرحباّ ${message.author.username}!`, `يرجى محاولة شرح سبب فتح هذه التذكرة بأكبر قدر ممكن من التفاصيل. سيكون فريق الدعم لدينا قريبا للمساعدة.`)
-                .setTimestamp();
-            c.send({
-                embed: embed
-            });
-        }).catch(console.error);
-    }
- 
- 
-  if (message.content.startsWith("$close")) {
-        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
- 
-        message.channel.send(`هل أنت متأكد؟ بعد التأكيد ، لا يمكنك عكس هذا الإجراء!\n للتأكيد ، اكتب\`$confirm\`. سيؤدي ذلك إلى مهلة زمنية في غضون 10 ثوانٍ وإلغائها`)
-            .then((m) => {
-                message.channel.awaitMessages(response => response.content === '$confirm', {
-                        max: 1,
-                        time: 10000,
-                        errors: ['time'],
-                    })    
-                    .then((collected) => {
-                        message.channel.delete();
-                    })   
-                    .catch(() => {
-                        m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
-                            m2.delete();
-                        }, 3000);
-                    });
-            });
-    }
- 
-});
+
+            
+                
 
  
 client.on('message', message => { //By |.iiMostafaYT#1001
@@ -1149,7 +1044,7 @@ client.on('guildCreate', guild => {
                                         let embed = new Discord.RichEmbed()
                                      .setAuthor(message.author.username)
                                      .setColor("#9B59B6")
-                                     .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/kKxzjMz**")
+                                     .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/4ueDhb9**")
                                         
                                         
                                      message.channel.sendEmbed(embed);
