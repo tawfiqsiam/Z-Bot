@@ -2483,7 +2483,170 @@ client.on("message", message => {
    message.author.sendEmbed(embed)
    
    }
-   });   
+   });  
+
+client.on("message", message => {
+	var args = message.content.split(' ').slice(1); 
+	var msg = message.content.toLowerCase();
+	if( !message.guild ) return;
+	if( !msg.startsWith('$role')) return;
+	if( msg.toLowerCase().startsWith('$roleremove' )){
+		if( !args[0] ) return message.reply( '**:x: Please Put The Person Who **' );
+		if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );
+		var role = msg.split(' ').slice(2).join(" ").toLowerCase(); 
+		var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first(); 
+		if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );if( message.mentions.members.first() ){
+			message.mentions.members.first().removeRole( role1 );
+			return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم سحب من **');
+		}
+		if( args[0].toLowerCase() == "all" ){
+			message.guild.members.forEach(m=>m.removeRole( role1 ))
+			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من الكل رتبة**');
+		} else if( args[0].toLowerCase() == "bots" ){
+			message.guild.members.filter(m=>m.user.bot).forEach(m=>m.removeRole(role1))
+			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البوتات رتبة**');
+		} else if( args[0].toLowerCase() == "humans" ){
+			message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.removeRole(role1))
+			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البشريين رتبة**');
+		} 	
+	} else {
+		if( !args[0] ) return message.reply( '**:x: Please Write the Person that will be given the role**' );
+		if( !args[1] ) return message.reply( '**:x: Please Write thr Role that will be give to person**' );
+		var role = msg.split(' ').slice(2).join(" ").toLowerCase(); 
+		var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first(); 
+		if( !role1 ) return message.reply( '**:x: Please Write thr Role that will be give to person**' );if( message.mentions.members.first() ){
+			message.mentions.members.first().addRole( role1 );
+			return message.reply('**:white_check_mark: [ '+role1.name+' ] Role [ '+args[0]+' ] Given **');
+		}
+		if( args[0].toLowerCase() == "all" ){
+			message.guild.members.forEach(m=>m.addRole( role1 ))
+			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الكل رتبة**');
+		} else if( args[0].toLowerCase() == "bots" ){
+			message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
+			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البوتات رتبة**');
+		} else if( args[0].toLowerCase() == "humans" ){
+			message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
+			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
+		} 
+	} 
+});
+
+const data = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
+  let banse = new Set();
+  client.on('guildBanAdd', function(guild) {
+    guild.fetchAuditLogs().then(logs => {
+      const ser = logs.entries.first().executor;
+      if(!bane[ser.id+guild.id]) bane[ser.id+guild.id] = {
+        bans: 2
+      }
+      let boner = bane[ser.id+guild.id]
+  banse.add(ser.id)
+  boner.bans = Math.floor(boner.bans+1)
+ 
+ 
+  setTimeout(() => {
+    boner.bans = 2
+    banse.delete(ser.id)
+  },8000)
+ 
+  if(boner.bans > 2) {
+    let roles = guild.members.get(ser.id).roles.array()
+  guild.members.get(ser.id).removeRoles(roles)
+  }
+ 
+      })
+      fs.writeFile('./alpha.json', JSON.stringify(bane), (err) => {
+  if (err) console.error(err);
+  })
+ 
+  })
+  client.on('guildMemberRemove', (u) => {
+      u.guild.fetchAuditLogs().then( s => {
+          var ss = s.entries.first();
+          if (ss.action == `MEMBER_KICK`) {
+          if (!data[ss.executor.id]) {
+              data[ss.executor.id] = {
+              time : 1
+            };
+        } else {  
+            data[ss.executor.id].time+=1
+        };
+  data[ss.executor.id].time = 0
+  u.guild.members.get(ss.executor.id).roles.forEach(r => {
+                  r.edit({
+                      permissions : []
+                  });
+                  data[ss.executor.id].time = 0
+              });
+          setTimeout(function(){
+              if (data[ss.executor.id].time <= 3) {
+                  data[ss.executor.id].time = 0
+              }
+          })
+      };
+      });
+      fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
+          if (err) console.log(err.message);
+      });
+  });
+  client.on('roleDelete', (u) => {
+      u.guild.fetchAuditLogs().then( s => {
+          var ss = s.entries.first();
+          if (ss.action == `ROLE_DELETE`) {
+          if (!data[ss.executor.id]) {
+              data[ss.executor.id] = {
+              time : 1
+            };
+        } else {
+            data[ss.executor.id].time+=1
+        };
+  data[ss.executor.id].time = 0
+  u.guild.members.get(ss.executor.id).roles.forEach(r => {
+                  r.edit({
+                      permissions : []
+                  });
+                  data[ss.executor.id].time = 0
+              });
+          setTimeout(function(){
+              if (data[ss.executor.id].time <= 3) {
+                  data[ss.executor.id].time = 0
+              }
+          },60000)
+      };
+      });
+      fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
+          if (err) console.log(err.message);
+      });
+  });
+  client.on('channelDelete', (u) => {
+      u.guild.fetchAuditLogs().then( s => {
+          var ss = s.entries.first();
+          if (ss.action == `CHANNEL_DELETE`) {
+          if (!data[ss.executor.id]) {
+              data[ss.executor.id] = {
+              time : 1
+            };
+        } else {
+            data[ss.executor.id].time+=1
+        };
+  data[ss.executor.id].time = 0
+  u.guild.members.get(ss.executor.id).roles.forEach(r => {
+                  r.edit({
+                      permissions : []
+                  });
+                  data[ss.executor.id].time = 0
+              });
+          setTimeout(function(){
+              if (data[ss.executor.id].time <= 3) {
+                  data[ss.executor.id].time = 0
+              }
+          })
+      };
+      });
+      fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
+          if (err) console.log(err.message);
+      });
+  })
 
 
 
