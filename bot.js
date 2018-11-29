@@ -2660,6 +2660,31 @@ const data = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
       });
   })
 
+client.on("message", message => {
+    if (message.content === "$help") {
+      message.channel.send('**تم الارسال في الخاص**')
+     const embed = new Discord.RichEmbed() 
+         .setColor("#00FF00")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`
+[❖═════ __**Other Commands**__ ═══════❖]
+**❖$help-music ~ برسلك اوامر الميوزك
+❖$toggleSpeard ~ يشغل مانع روابط مواقع التواصل الاجتماعي
+❖$autorole set <Role Name> ~ يعطي رتب تلقائية 
+❖$autorole toggle ~ تشغيل اعطاء الرتب التلقائية
+❖$info ~ معلومات الرتب التلقائية
+❖$setvoice ~ يسوي روم يكتب فيها عدد الأشخاص الموجودين في الروات الصوتية
+❖$role all/humans/bots ~ يعطي رتبة
+❖$roleremvoe all/humans/bots ~ ياخذ رتبة
+[❖═════ __**Economy Commands**__ ═══════❖]
+❖$daily ~ احصل على راتبك اليومي
+❖$credit ~ راتبك الحالي
+`)
+   message.author.sendEmbed(embed)
+   
+   }
+   });  
+
 
 
 client.login(process.env.BOT_TOKEN);
