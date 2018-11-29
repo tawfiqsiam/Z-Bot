@@ -2664,8 +2664,8 @@ client.on("message", message => {
 ❖$role all/humans/bots ~ يعطي رتبة
 ❖$roleremvoe all/humans/bots ~ ياخذ رتبة
 [❖═════ __**Economy Commands**__ ═══════❖]
-❖$daily ~ احصل على راتبك اليومي
-❖$credit ~ راتبك الحالي
+**❖$daily ~ احصل على راتبك اليومي
+❖$credit ~ راتبك الحالي**
 `)
    message.author.sendEmbed(embed)
    
