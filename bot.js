@@ -1760,12 +1760,12 @@ const log = JSON.parse(fs.readFileSync('./log.json' , 'utf8'));
 //Perfect log Code
 client.on('message', message => {
     let room = message.content.split(" ").slice(1);
-    let findroom = message.guild.channels.find('name', `${room}`);
+    let findroom = message.guild.channel.find('name', `${room}`);
     if(message.content.startsWith("$setLog")) {
         if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
         if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
 if(!room) return message.channel.send('Please Type The Channel Name')
-if(!findroom) return message.channel.send('Please Type The Log Channel Name')
+if(!findroom) return message.channel.send('Please Type The Log Channel Name');
 let embed = new Discord.RichEmbed()
 .setTitle('**Done The Log Code Has Been Setup**')
 .addField('Channel:', `${room}`)
