@@ -2479,6 +2479,18 @@ client.on("message", message => {
 ❖$support ~ سيرفر الدعم
 ❖$contact ~ ارسال اقتراح او لمراسلة صاحب البوت
 ❖$invitebots ~ لدعوت اي بوت انت تبيه**
+[❖═════ __**Other Commands**__ ═══════❖]
+**❖$help-music ~ برسلك اوامر الميوزك
+❖$toggleSpeard ~ يشغل مانع روابط مواقع التواصل الاجتماعي
+❖$autorole set <Role Name> ~ يعطي رتب تلقائية 
+❖$autorole toggle ~ تشغيل اعطاء الرتب التلقائية
+❖$info ~ معلومات الرتب التلقائية
+❖$setvoice ~ يسوي روم يكتب فيها عدد الأشخاص الموجودين في الروات الصوتية
+❖$role all/humans/bots ~ يعطي رتبة
+❖$roleremvoe all/humans/bots ~ ياخذ رتبة
+[❖═════ __**Economy Commands**__ ═══════❖]
+❖$daily ~ احصل على راتبك اليومي
+❖$credit ~ راتبك الحالي
 `)
    message.author.sendEmbed(embed)
    
