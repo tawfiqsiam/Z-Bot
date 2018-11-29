@@ -37,7 +37,7 @@ client.on('ready', () => {//MRX - DEV
   console.log(`${client.user.username} Is Online`);//MRX - DEV
 //MRX - DEV
 
-    client.user.setActivity('$help', {type: 'WATCHING'});//MRX - DEV
+    client.user.setActivity('$help', {type: 'PLAYING'});//MRX - DEV
 //MRX - DEV
 
   });
@@ -1033,7 +1033,7 @@ client.on('guildCreate', guild => {
                                             let embed = new Discord.RichEmbed()
                                             .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
                                             .setTitle(`:small_orange_diamond: Invite Link `)
-                                            .setURL(`https://discordapp.com/oauth2/authorize?client_id=512706922487742466&permissions=2080374975&scope=bot`)
+                                            .setURL(`https://discordapp.com/api/oauth2/authorize?client_id=517673066642276367&permissions=8&scope=bot`)
                                             .setThumbnail(" https://cdn.discordapp.com/avatars/377904849783750667/6c76e412f18c142dfd711d05fb363869.png?size=2048")        
                                          message.channel.sendEmbed(embed);
                                            }
@@ -1044,7 +1044,7 @@ client.on('guildCreate', guild => {
                                         let embed = new Discord.RichEmbed()
                                      .setAuthor(message.author.username)
                                      .setColor("#9B59B6")
-                                     .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/4ueDhb9**")
+                                     .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/hQJGDWk**")
                                         
                                         
                                      message.channel.sendEmbed(embed);
