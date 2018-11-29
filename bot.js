@@ -3023,19 +3023,8 @@ client.on("message", message => {
          .setDescription(`
          **بوت فيه مميزات كثيره و جميله :gem: 
          البوت يعمل 24 ساعه :rocket: 
-         البوت مجاني :free:** `)
-   message.author.sendEmbed(embed)
-   
-   }
-   });   
-
-client.on("message", message => {
-    if (message.content === "$help") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#00FF00")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`
-         __**« Admin Orders »**__
+         البوت مجاني :free:**
+__**« Admin Orders »**__
 **❖$move @user ~  لسحب الشخص الى روومك
 ❖$bc ~ رسالة جماعية الى كل اعضاء السيرفر
 ❖$role ~ لأعطاء رتبة
@@ -3054,19 +3043,14 @@ client.on("message", message => {
 ❖$cv <name> ~ انشاء رووم فويس
 ❖$delete <name> ~ مسح الشات او الرووم فويس
 ❖$ccolors <number> ~ ينشا لك الوان مع كم الوان تبي**
-         `)
-   message.author.sendEmbed(embed)
-   
-   }
-   }); 
-
-client.on("message", message => {
-    if (message.content === "$help") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#00FF00")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`
-         __**« General Orders »**__
+__**« Games Orders » **__
+**❖$rps ~ حجر ورقة مقص
+❖$quas ~ اسئلة عامه   
+❖$فوائد ونصائح  ~ هل تعلم
+❖$mcskin <name> ~ يظهر سكنك في ماين كرافت
+❖$لعبة مريم ~ مريم
+❖$يعطيك عقابات قاسية ~ عقاب** 
+__**« General Orders »**__
 **❖$allbots ~ لعرض جميع البوتات الي بالسيرفر
 ❖$server ~يعرض لك معلومات عن السيرفر
 ❖$bot ~ يعرض لك كل معلومات البوت
@@ -3083,29 +3067,13 @@ client.on("message", message => {
 ❖$inv ~ لدعوة البوت الى سيرفرك
 ❖$support ~ سيرفر الدعم
 ❖$contact ~ ارسال اقتراح او لمراسلة صاحب البوت
-❖$invitebots ~ لدعوت اي بوت انت تبيه** `)
+❖$invitebots ~ لدعوت اي بوت انت تبيه**
+`)
    message.author.sendEmbed(embed)
    
    }
-   });
+   });   
 
 
-client.on("message", message => {
-    if (message.content === "$help") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#00FF00")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`
-         __**« Games Orders **__
-**❖$rps ~ حجر ورقة مقص
-❖$quas ~ اسئلة عامه   
-❖$فوائد ونصائح  ~ هل تعلم
-❖$mcskin <name> ~ يظهر سكنك في ماين كرافت
-❖$لعبة مريم ~ مريم
-❖$يعطيك عقابات قاسية ~ عقاب**   `)
-   message.author.sendEmbed(embed)
-   
-   }
-   }); 
 
 client.login(process.env.BOT_TOKEN);
