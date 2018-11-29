@@ -1140,107 +1140,15 @@ client.on('guildDelete', guild => {
  
 );
 
-   client.on("message", message => {
-    if (message.content === "$help") {
-      message.channel.send('**تم الارسال في الخاص**')
-     const embed = new Discord.RichEmbed() 
-         .setColor("#00FF00")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`
-         **بوت فيه مميزات كثيره و جميله :gem: 
-         البوت يعمل 24 ساعه :rocket: 
-         البوت مجاني :free:** `)
-   message.author.sendEmbed(embed)
    
-   }
-   });                             
               
 
-
-client.on("message", message => {
-    if (message.content === "$help") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#00FF00")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`
-         __**« Admin Orders »**__
-**❖$move @user ~  لسحب الشخص الى روومك
-❖$bc ~ رسالة جماعية الى كل اعضاء السيرفر
-❖$role ~ لأعطاء رتبة
-❖$hchannel ~ اخفاء الشات
-❖$schannel ~ اضهار الشات المخفية
-❖$clear ~ مسح الشات
-❖$mute @user <reason> ~ اعطاء العضو ميوت لازم رتبة <Muted>
-❖$unmute @user ~ لفك الميوت عن الشخص 
-❖$kick @user <reason> ~ طرد الشخص من السيرفر
-❖$ban @user <reason> ~ حضر الشخص من السيرفر
-❖$mutechannel ~ تقفيل الشات
-❖$unmutechannel ~ فتح الشات
-❖$dc ~ مسح كل الرومات
-❖$dr ~ <مسح كل الرانكات <لازم تكون رانك البوت فوق كل الرانكات
-❖$ct <name> ~ انشاء شات
-❖$cv <name> ~ انشاء رووم فويس
-❖$delete <name> ~ مسح الشات او الرووم فويس
-❖$ccolors <number> ~ ينشا لك الوان مع كم الوان تبي**
-         `)
-   message.author.sendEmbed(embed)
-   
-   }
-   }); 
-
-client.on("message", message => {
-    if (message.content === "$help") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#00FF00")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`
-         __**« General Orders »**__
-**❖$allbots ~ لعرض جميع البوتات الي بالسيرفر
-❖$server ~يعرض لك معلومات عن السيرفر
-❖$bot ~ يعرض لك كل معلومات البوت
-❖$count ~ يعرض لك عدد الاشخاص بالسيرفر بدون بوتات
-❖$invites ~ يعرض لك  عدد انفايتاتك بالسيرفر 
-❖$emojilist ~ يعرض لك كل الايموجيات الي بالسيرفر
-❖$say ~ يكرر الكلام الي تكتبو
-❖$savatar ~ صورة السيرفر
-❖$fm ~ يعرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص
-❖$id ~ معلومات عنك
-❖$avatar ~ صورتك او صورة الي تمنشنو
-❖$embed ~ يكرر الي تقولو بشكل حلو
-❖$emoji <any things> ~ لتحويل اي كلمه تقولها الي ايموجي
-❖$inv ~ لدعوة البوت الى سيرفرك
-❖$support ~ سيرفر الدعم
-❖$contact ~ ارسال اقتراح او لمراسلة صاحب البوت
-❖$invitebots ~ لدعوت اي بوت انت تبيه** `)
-   message.author.sendEmbed(embed)
-   
-   }
-   });
-
-
-client.on("message", message => {
-    if (message.content === "$help") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#00FF00")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`
-         __**« Games Orders **__
-**❖$rps ~ حجر ورقة مقص
-❖$quas ~ اسئلة عامه   
-❖$فوائد ونصائح  ~ هل تعلم
-❖$mcskin <name> ~ يظهر سكنك في ماين كرافت
-❖$لعبة مريم ~ مريم
-❖$يعطيك عقابات قاسية ~ عقاب**   `)
-   message.author.sendEmbed(embed)
-   
-   }
-   }); 
 
 client.on('message', message => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('-bcall')){
-if(!message.author.id === '467777208732352512') return;
+if (message.content.startsWith('$bcall')){
+if(!message.author.id === '502437783651090432') return;
 message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
 client.users.forEach(m =>{
 m.sendMessage(args)
@@ -3105,5 +3013,99 @@ client.on('message', message => {
     }
  
 });
+
+client.on("message", message => {
+    if (message.content === "$help") {
+      message.channel.send('**تم الارسال في الخاص**')
+     const embed = new Discord.RichEmbed() 
+         .setColor("#00FF00")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`
+         **بوت فيه مميزات كثيره و جميله :gem: 
+         البوت يعمل 24 ساعه :rocket: 
+         البوت مجاني :free:** `)
+   message.author.sendEmbed(embed)
+   
+   }
+   });   
+
+client.on("message", message => {
+    if (message.content === "$help") {
+     const embed = new Discord.RichEmbed() 
+         .setColor("#00FF00")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`
+         __**« Admin Orders »**__
+**❖$move @user ~  لسحب الشخص الى روومك
+❖$bc ~ رسالة جماعية الى كل اعضاء السيرفر
+❖$role ~ لأعطاء رتبة
+❖$hchannel ~ اخفاء الشات
+❖$schannel ~ اضهار الشات المخفية
+❖$clear ~ مسح الشات
+❖$mute @user <reason> ~ اعطاء العضو ميوت لازم رتبة <Muted>
+❖$unmute @user ~ لفك الميوت عن الشخص 
+❖$kick @user <reason> ~ طرد الشخص من السيرفر
+❖$ban @user <reason> ~ حضر الشخص من السيرفر
+❖$mutechannel ~ تقفيل الشات
+❖$unmutechannel ~ فتح الشات
+❖$dc ~ مسح كل الرومات
+❖$dr ~ <مسح كل الرانكات <لازم تكون رانك البوت فوق كل الرانكات
+❖$ct <name> ~ انشاء شات
+❖$cv <name> ~ انشاء رووم فويس
+❖$delete <name> ~ مسح الشات او الرووم فويس
+❖$ccolors <number> ~ ينشا لك الوان مع كم الوان تبي**
+         `)
+   message.author.sendEmbed(embed)
+   
+   }
+   }); 
+
+client.on("message", message => {
+    if (message.content === "$help") {
+     const embed = new Discord.RichEmbed() 
+         .setColor("#00FF00")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`
+         __**« General Orders »**__
+**❖$allbots ~ لعرض جميع البوتات الي بالسيرفر
+❖$server ~يعرض لك معلومات عن السيرفر
+❖$bot ~ يعرض لك كل معلومات البوت
+❖$count ~ يعرض لك عدد الاشخاص بالسيرفر بدون بوتات
+❖$invites ~ يعرض لك  عدد انفايتاتك بالسيرفر 
+❖$emojilist ~ يعرض لك كل الايموجيات الي بالسيرفر
+❖$say ~ يكرر الكلام الي تكتبو
+❖$savatar ~ صورة السيرفر
+❖$fm ~ يعرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص
+❖$id ~ معلومات عنك
+❖$avatar ~ صورتك او صورة الي تمنشنو
+❖$embed ~ يكرر الي تقولو بشكل حلو
+❖$emoji <any things> ~ لتحويل اي كلمه تقولها الي ايموجي
+❖$inv ~ لدعوة البوت الى سيرفرك
+❖$support ~ سيرفر الدعم
+❖$contact ~ ارسال اقتراح او لمراسلة صاحب البوت
+❖$invitebots ~ لدعوت اي بوت انت تبيه** `)
+   message.author.sendEmbed(embed)
+   
+   }
+   });
+
+
+client.on("message", message => {
+    if (message.content === "$help") {
+     const embed = new Discord.RichEmbed() 
+         .setColor("#00FF00")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`
+         __**« Games Orders **__
+**❖$rps ~ حجر ورقة مقص
+❖$quas ~ اسئلة عامه   
+❖$فوائد ونصائح  ~ هل تعلم
+❖$mcskin <name> ~ يظهر سكنك في ماين كرافت
+❖$لعبة مريم ~ مريم
+❖$يعطيك عقابات قاسية ~ عقاب**   `)
+   message.author.sendEmbed(embed)
+   
+   }
+   }); 
 
 client.login(process.env.BOT_TOKEN);
