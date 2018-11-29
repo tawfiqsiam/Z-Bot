@@ -1037,7 +1037,19 @@ client.on('guildCreate', guild => {
                                             .setThumbnail(" https://cdn.discordapp.com/avatars/377904849783750667/6c76e412f18c142dfd711d05fb363869.png?size=2048")        
                                          message.channel.sendEmbed(embed);
                                            }
-                                       });                                    
+                                       });  
+
+                                    client.on('message', message => {
+                                            if (message.content === "$invite") {
+                                                if(!message.channel.guild) return;
+                                            let embed = new Discord.RichEmbed()
+                                            .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
+                                            .setTitle(`:small_orange_diamond: Invite Link `)
+                                            .setURL(`https://discordapp.com/api/oauth2/authorize?client_id=517673066642276367&permissions=8&scope=bot`)
+                                            .setThumbnail(" https://cdn.discordapp.com/avatars/377904849783750667/6c76e412f18c142dfd711d05fb363869.png?size=2048")        
+                                         message.channel.sendEmbed(embed);
+                                           }
+                                       });    
 
                                        client.on('message', message => {
                                         if (message.content === "$support") {
@@ -1841,7 +1853,7 @@ const log = JSON.parse(fs.readFileSync('./log.json' , 'utf8'));
 client.on('message', message => {
     let room = message.content.split(" ").slice(1);
     let findroom = message.guild.channels.find('name', `${room}`)
-    if(message.content.startsWith("$setlog")) {
+    if(message.content.startsWith("$setLog")) {
         if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
         if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
 if(!room) return message.channel.send('Please Type The Channel Name')
@@ -1864,7 +1876,7 @@ if (err) console.error(err)
          
 client.on('message', message => {
  
-    if(message.content.startsWith("$togglelog")) {
+    if(message.content.startsWith("$toggleLog")) {
         if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
         if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
         if(!log[message.guild.id]) log[message.guild.id] = {
@@ -2995,5 +3007,103 @@ client.on("message", async message => { //حقوق سوبريم
         .catch(error => { return message.reply(error.message) }) //حقوق سوبريم
     }    
 })
+
+let speard = JSON.parse(fs.readFileSync('./speard.json' , 'utf8'));
+client.on('message', message => {
+    if(message.content.startsWith("$toggleSpeard")) {
+        if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+        if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+        if(!speard[message.guild.id]) speard[message.guild.id] = {
+          onoff: 'Off'
+        }
+          if(speard[message.guild.id].onoff === 'Off') return [message.channel.send(`**✅ The Antispeard Is __𝐎𝐍__ !**`), speard[message.guild.id].onoff = 'On']
+          if(speard[message.guild.id].onoff === 'On') return [message.channel.send(`**⛔ The Antispeard Is __𝐎𝐅𝐅__ !**`), speard[message.guild.id].onoff = 'Off']
+          fs.writeFile("./speard.json", JSON.stringify(speard), (err) => {
+            if (err) console.error(err)
+            .catch(err => {
+              console.error(err);
+          });
+            });
+          }
+         
+        })
+    client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('http://www.gmail.com/')){
+        if(speard[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispeard ON ! So You Cant speard Here !**`)
+    }
+});
+ 
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://www.snapchat.com/')){
+        if(speard[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispeard ON ! So You Cant speard Here !**`)
+    }
+});
+ 
+ 
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://www.instagram.com/')){
+        if(speard[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispeard ON ! So You Cant speard Here !**`)
+    }
+});
+ 
+ 
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://www.twitter.com/')){
+        if(speard[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispeard ON ! So You Cant speard Here !**`)
+    }
+});
+ 
+ 
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('http://www.facebook.com/')){
+        if(speard[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispeard ON ! So You Cant speard Here !**`)
+    }
+});
+ 
+ 
+ 
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://www.youtube.com/')){
+        if(speard[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispeard ON ! So You Cant speard Here !**`)
+    }
+ 
+});
+ 
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://www.discordapp.com/')){
+        if(speard[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispeard ON ! So You Cant speard Here !**`)
+    }
+ 
+});
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://discord.gg/')){
+        if(speard[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispeard ON ! So You Cant speard Here !**`)
+    }
+ 
+});
 
 client.login(process.env.BOT_TOKEN);
