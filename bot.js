@@ -2429,7 +2429,7 @@ client.on("message", message => {
     if (message.content === "$help") {
       message.channel.send('**تم الارسال في الخاص**')
      const embed = new Discord.RichEmbed() 
-         .setColor("#00FF00")
+         .setColor("#000000")
          .setThumbnail(message.author.avatarURL)
          .setDescription(`
          **بوت فيه مميزات كثيره و جميله :gem: 
@@ -2555,7 +2555,7 @@ const data = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
   }
  
       })
-      fs.writeFile('./alpha.json', JSON.stringify(bane), (err) => {
+      fs.writeFile('./data.json', JSON.stringify(bane), (err) => {
   if (err) console.error(err);
   })
  
@@ -2650,9 +2650,8 @@ const data = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
 
 client.on("message", message => {
     if (message.content === "$help") {
-      message.channel.send('**تم الارسال في الخاص**')
      const embed = new Discord.RichEmbed() 
-         .setColor("#00FF00")
+         .setColor("#000000")
          .setThumbnail(message.author.avatarURL)
          .setDescription(`
 [❖═════ __**Other Commands**__ ═══════❖]
