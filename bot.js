@@ -1,4 +1,4 @@
-const Discord = require('discord.js'); //Z
+const Discord = require('discord.js'); //Z Bot
 
 const Util = require('discord.js');
 
@@ -2456,13 +2456,6 @@ client.on("message", message => {
 ❖$cv <name> ~ انشاء رووم فويس
 ❖$delete <name> ~ مسح الشات او الرووم فويس
 ❖$ccolors <number> ~ ينشا لك الوان مع كم الوان تبي**
-[❖═════ __**Games Commands**__ ═══════❖]
-**❖$rps ~ حجر ورقة مقص
-❖$quas ~ اسئلة عامه   
-❖$فوائد ونصائح  ~ هل تعلم
-❖$mcskin <name> ~ يظهر سكنك في ماين كرافت
-❖$لعبة مريم ~ مريم
-❖$يعطيك عقابات قاسية ~ عقاب** 
 [❖═════ __**General Commands**__ ═══════❖]
 **❖$allbots ~ لعرض جميع البوتات الي بالسيرفر
 ❖$server ~يعرض لك معلومات عن السيرفر
@@ -2670,6 +2663,23 @@ client.on("message", message => {
 [❖═════ __**Economy Commands**__ ═══════❖]
 **❖$daily ~ احصل على راتبك اليومي
 ❖$credit ~ راتبك الحالي**
+[❖═════ __**Games Commands**__ ═══════❖]
+**❖$rps ~ حجر ورقة مقص
+❖$quas ~ اسئلة عامه   
+❖$فوائد ونصائح  ~ هل تعلم
+❖$mcskin <name> ~ يظهر سكنك في ماين كرافت
+❖$لعبة مريم ~ مريم
+❖$يعطيك عقابات قاسية ~ عقاب 
+❖$لعبة فكك ~ فكك
+❖$لعبة لغز ~ لغز
+❖$لعبة رياضيات~ رياضيات
+❖$لعبة ركب ~ ركب
+❖$xo ~ XO Game
+❖$points ~ يرسلك كم نقاطك
+❖$يرسلك كم نقاطك ~ نقاطي
+❖$top ~ لائحة بأسماء الأوائل في النقاط
+
+
 `)
    message.author.sendEmbed(embed)
    
