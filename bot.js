@@ -1158,7 +1158,7 @@ client.on('guildCreate', guild => {
                                    
  client.on('guildCreate', guild => {
    
-  client.channels.get("512996566165094401")
+  client.channels.get("517919625951051776")
  const embed = new Discord.RichEmbed()
    .setAuthor(`بوتك دخل سيرفر جديد مبروك ✅`)
    .setDescription(`**
@@ -1169,16 +1169,16 @@ client.on('guildCreate', guild => {
  Servers Counter : __${client.guilds.size}__**`)
          .setColor("#f3ae10")
          .addField("New Server!")
-         .setFooter('SkyBot' , client.user.avatarURL)
-           client.channels.get("512996566165094401").send({embed}); //Sup
+         .setFooter('Z Bot ✨' , client.user.avatarURL)
+           client.channels.get("517919625951051776").send({embed}); //Sup
  }
  
 );
 
 client.on('guildDelete', guild => {
-  client.channels.get("512996566165094401")
+  client.channels.get("517919625951051776")
  const embed = new Discord.RichEmbed()
-   .setAuthor(`SkyBot left a server ❎`)
+   .setAuthor(`Z Bot ✨ left a server ❎`)
    .setDescription(`**
  Server name: __${guild.name}__
  Server id: __${guild.id}__
@@ -1186,8 +1186,8 @@ client.on('guildDelete', guild => {
  Members Count: __${guild.memberCount}__
  Servers Counter : __${client.guilds.size}__**`)
          .setColor("#f3ae10")
-         .setFooter('SkyBot' , client.user.avatarURL)
-           client.channels.get("512996566165094401").send({embed});
+         .setFooter('Z Bot ✨' , client.user.avatarURL)
+           client.channels.get("517919625951051776").send({embed});
  }
  
 );
