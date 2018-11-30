@@ -2662,7 +2662,9 @@ client.on("message", message => {
 ❖$sug ~ تكتب اقتراحك ليس للبوت
 ❖$rank ~ يوريك رانكك بالنسبة للفل و الإكس بي
 ❖$perms ~ يوريك برمشناتك في سيرفر معين
-❖$setWelcome ~ امر يخليك تختار روم الولكم**
+❖$setWelcome ~ امر يخليك تختار روم الولكم
+❖$toggleWelcome ~ تشغيل او اطفاء الولكم
+❖$toggleInvitedBy ~ (تشغيل او اطفاء اللإنفايتد باي (لازم تكتبه بالظبط**
 [❖═════ __**Economy Commands**__ ═══════❖]
 **❖$daily ~ احصل على راتبك اليومي
 ❖$credit ~ راتبك الحالي**
@@ -4070,7 +4072,7 @@ client.on('message', message => {
  
     let room = message.content.split(" ").slice(1);
     let findroom = message.guild.channels.find('name', `${room}`)
-    if(message.content.startsWith(prefix + "setWelcomer")) {
+    if(message.content.startsWith(prefix + "setWelcome")) {
         if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
         if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
 if(!room) return message.channel.send('Please Type The Channel Name')
