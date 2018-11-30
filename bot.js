@@ -3974,7 +3974,7 @@ client.on('message', message => {
 const sWlc = {}
 const premium = ['502437783651090432', '', '', '']
 client.on('message', message => {
-var prefix = ">";
+var prefix = "$";
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
   if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
