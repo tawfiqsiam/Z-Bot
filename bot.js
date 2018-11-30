@@ -2657,7 +2657,7 @@ client.on("message", message => {
 ❖$info ~ معلومات الرتب التلقائية
 ❖$setvoice ~ يسوي روم يكتب فيها عدد الأشخاص الموجودين في الروات الصوتية
 ❖$role all/humans/bots ~ يعطي رتبة
-❖$roleremvoe all/humans/bots ~ ياخذ رتبة**
+❖$roleremvoe all/humans/bots ~ ياخذ رتبة
 ❖$setSug ~ تحديد روم للاقتراحات
 ❖$sug ~ تكتب اقتراحك ليس للبوت
 ❖$rank ~ يوريك رانكك بالنسبة للفل و الإكس بي
