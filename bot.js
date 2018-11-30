@@ -1388,7 +1388,7 @@ client.on('message', message => {
         .addField("📜 Server NIP",`${args}`,true)
         .addField("🌐 Server Port",`${port}`)
         .setImage(`http://status.mclive.eu/${args}/${args}/25565/banner.png`)
-        .setFooter(`SkyBot.`)
+        .setFooter(`Z Bot ✨`)
                 .setTimestamp()
     message.channel.send(embed)      
 }})
