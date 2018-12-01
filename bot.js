@@ -2367,35 +2367,6 @@ client.on("message", async message => { //حقوق سوبريم
  
  
  
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('https://www.youtube.com/')){
-        if(speard[message.guild.id].onoff === 'Off') return;
-        message.delete()
-    return message.reply(`**⛔ The Antispeard ON ! So You Cant speard Here !**`)
-    }
- 
-});
- 
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('https://www.discordapp.com/')){
-        if(speard[message.guild.id].onoff === 'Off') return;
-        message.delete()
-    return message.reply(`**⛔ The Antispeard ON ! So You Cant speard Here !**`)
-    }
- 
-});
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('https://discord.gg/')){
-        if(speard[message.guild.id].onoff === 'Off') return;
-        message.delete()
-    return message.reply(`**⛔ The Antispeard ON ! So You Cant speard Here !**`)
-    }
- 
-});
-
 client.on("message", message => {
     if (message.content === "$help") {
       message.channel.send('**تم الارسال في الخاص**')
