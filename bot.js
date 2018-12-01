@@ -1198,19 +1198,55 @@ client.on('guildDelete', guild => {
               
 
 
-client.on('message', message => {
-    if(!message.channel.guild) return;
-let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('$bcall')){
-if(!message.author.id === '502437783651090432') return;
-message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
-client.users.forEach(m =>{
-m.sendMessage(args)
-})
-}
-
-
+client.on('message', async message => {
+  if(message.content.startsWith("$bcall")) {
+    let i = client.users.size;
+    if(message.author.id !== '502437783651090432') return message.channel.send('❎ » هذا الأمر مخصص لصاحب البوت فقط');
+    var args = message.content.split(' ').slice(1).join(' ');
+    if(!args) return message.channel.send('❎ » يجب عليك كتابة الرسالة')
+    setTimeout(() => {
+      message.channel.send(`تم الارسال لـ ${i} شخص`)
+    }, client.users.size * 1000);
+    client.users.forEach(s => {
+      s.send(args).catch(e => i--);
+    });
+  }
 });
+
+client.on('message', message => {
+                               if(!message.channel.guild) return;
+                       if (message.content.startsWith('$ping')) {
+                           if(!message.channel.guild) return;
+                           var msg = `${Date.now() - message.createdTimestamp}`
+                           var api = `${Math.round(client.ping)}`
+                           if (message.author.bot) return;
+                       let embed = new Discord.RichEmbed()
+                       .setAuthor(message.author.username,message.author.avatarURL)
+                       .setThumbnail('https://cdn.discordapp.com/avatars/368141321547808768/c42716e13cb850f9ad0930af699472d0.png?size=2048nk')
+                       .setColor('#000000').setColor('#36393e')
+                       .addField('**Time Taken:**',msg + " ms")
+                       .addField('**WebSocket:**',api + " ms")
+        message.channel.send({embed:embed});
+                       }
+                   });
+
+client.on('message', message => {
+             if (!message.channel.guild) return;
+     if(message.content =='$members')
+     var IzRo = new Discord.RichEmbed()
+     .setThumbnail(message.author.avatarURL)
+     .setFooter(message.author.username, message.author.avatarURL) 
+     .setTitle(':tulip:| Members info')
+     .addBlankField(true)
+     .addField(':green_book:| Online ',
+     `${message.guild.members.filter(m=>m.presence.status == 'online').size}`)
+     .addField(':closed_book:| DND',`${message.guild.members.filter(m=>m.presence.status == 'dnd').size}`)
+     .addField(':orange_book:| idle',`${message.guild.members.filter(m=>m.presence.status == 'idle').size}`)
+     .addField(':notebook:| Offline ',`${message.guild.members.filter(m=>m.presence.status == 'offline').size}`)
+     .addField('Members Count',`${message.guild.memberCount}`)
+     message.channel.send(IzRo);
+   });
+
 
 
 
