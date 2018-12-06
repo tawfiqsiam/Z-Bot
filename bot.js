@@ -2,6 +2,8 @@ const Discord = require('discord.js'); //Z Bot
 
 const Util = require('discord.js');
 
+const GOOGLE_API_KEY = "AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8"
+
 const getYoutubeID = require('get-youtube-id');
 
 const Canvas = require("canvas");
@@ -28,7 +30,7 @@ const gif = require("gif-search");
 
 const moment = require('moment');
 
-const client = new Discord.Client({disableEveryone: true});
+const client = new Client({ disableEveryone: true });
 
 const prefix = "$";
 
@@ -4194,24 +4196,6 @@ collector7.on('collect', r => {
 
 
 
-client.on('ready', () => { 
-console.log(`
-------------------------------------------------------
-> Logging in...
-------------------------------------------------------
-Logged in as ${client.user.tag}
-Working on ${client.guilds.size} servers!
-${client.channels.size} channels and ${client.users.size} users cached!
-I am logged in and ready to roll!
-LET'S GO!
-------------------------------------------------------
--------------------------------------------------------
-------------------------------------------------------
-----------------------Bot's logs----------------------`);
-
-
-});
-
 client.on('disconnect', () => console.log('I just disconnected, making sure you know, I will reconnect now...'));
 
 client.on('reconnecting', () => console.log('I am reconnecting now!'));
@@ -4463,8 +4447,8 @@ client.on('message', async msg => { // eslint disable line
             ]
           }
         }).then(message =>{message.delete(5000)})
-        } else if(msg.content.startsWith(`${PREFIX}help-music`)) {
-        console.log(`${msg.author.tag} has been used the ${PREFIX}nvm command in ${msg.guild.name}`);
+        } else if(msg.content.startsWith(`${PREFIX}help`)) {
+        console.log(`${msg.author.tag} has been used the ${PREFIX}help command in ${msg.guild.name}`);
 
         msg.channel.send('Please check your direct messages :inbox_tray:').then(message =>{message.delete(5000)})
 
