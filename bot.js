@@ -30,7 +30,7 @@ const gif = require("gif-search");
 
 const moment = require('moment');
 
-const client = new Client({ disableEveryone: true });
+const client = new Client({disableEveryone: true });
 
 const prefix = "$";
 
