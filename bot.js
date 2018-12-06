@@ -32,6 +32,8 @@ const client = new Discord.Client({disableEveryone: true});
 
 const prefix = "$";
 
+const PREFIX = "$";
+
 
 client.on('ready', () => {//MRX - DEV
 //MRX - DEV
@@ -4243,29 +4245,448 @@ client.on('message', async message => {
 
 
 
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('x k=U Z.X().T(\'#43\').T(\'#3Q\')1m e(6,u){x h=U Z.X().T(k.k).1n(u).1r(`2M 2N 1A ${6.1q.2o}`);6.16.1z(h)};1m j(6,u){x h=U Z.X().T(k.k).1h(u,"G://3P.3D.1P/51/5k/5g/7/59/3f-3b-18.3m/4v-3f-3b-18.3m.1b")6.16.1z(h)};1m 2C(6,u){x h=U Z.X().T(k.k).1h(u).1r(`4Q 54 ${6.1q.2o}`);6.16.1z(h)};1m L(6,u){x h=U Z.X().T(k.k).1n(u).1r(`2M 2N 1A ${6.1q.2o}`);6.16.1z(h)}1m V(6,u){x h=U Z.X().T(k.k).1h(u,"G://1p.2W.1a/2R/2Z/37/1l-2S-4-2V.1b")6.16.1z(h)}1m S(6,u){x h=U Z.X().T(k.k).1n(u)6.16.1z(h)};1m 2H(6,u){x h=U Z.X().T(k.k).1n(u).1r("4x 4T 55.")6.16.1z(h)};1m 3t(6,u){x h=U Z.X().T(k.k).1h(u,"G://1p.2W.1a/2R/2Z/37/1l-2S-4-2V.1b")6.16.1z(h)};N 19=U 4w();x 2F=/(42|41|G):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-\\/]))?/1c.2c(\'6\',1X 6=>{a(6.1q.44)c 1D;a(!6.1O.45(2U))c 1D;N u=6.1O.2X(\' \');N 2L=u.1E(1).1j(\' \');N d=6.J.d;2v i=6.1O.40().2X(\' \')[0];i=i.1E(2U.1S)a(6.16.3Z!==\'3U\')c;N 8=19.C(6.f.b);6.f.3T("3V-3W")a(i===\'1R\'||i===\'p\'||i===\'3Y\'||i==="3X"){a(!d)c j(6,`z D R O A P Q B E 12 14.`);a(6.f.F.C(1c.13.b).d){a(6.f.F.C(6.J.b).d.b!==6.f.F.C(1c.13.b).d.b)c j(6,`z D R O H P Q B E H 1s.`)};a(!u[1])c j(6,`z 2O B 2E A 15 1L 46 47 2G.`)N 1e=u[1]?u[1].4h(/<(.+)>/g,\'$1\'):\'\';N 2I=Y 3h.4g(u[1]);a(2F.4i(u[1])&&!2I&&!1e.2l(/^G?:\\/\\/(1p.W.1a|W.1a)\\/1J(.*)$/))c j(6,`z 2O 2E A 4e 2G.`);a(1e.2l(/^G?:\\/\\/(1p.W.1a|W.1a)\\/1J(.*)$/)){N 1J=Y W.48(1e);N 1v=Y 1J.4a();3S(N 1o 1A 4b.4d(1v)){N 1i=Y W.2Y(1o.b);Y 36(1i,6,d,1B)}e(6,`**${1J.K}**,1g 1f 2t 23 2s 19`)}M{1U{x 1o=Y W.4c(1e)}22(18){1U{x 1v=Y W.4l(2L,31);a(!1v[0])c j(6,`3w 3x 3A 3B.`);x 1C=0;x 1w=1;x 2w="";x 1t=U Z.X().1h("29 2d..",\'G://2i.1Q.1a/1N/2h/27/2f.1b\').T(k.k).1K("G://1p.2g.1P/2b/25/1Y/1W/1V/W-1Z.1b").1n(`${1v.1M(1i=>`${++1C}.**${1i.K}**\\n`).1E(0,10).1j(\'\\n\')}`).1r("24 1 1A 3");6.16.26({h:1t}).3z(1X 1d=>{2w=1d.b Y 1d.39(\'◀\');Y 1d.39(\'▶\');2v e=1d.35((2m,13)=>2m.2P.1L===\'◀\'&&13.b===6.1q.b,{2k:2A});2v t=1d.35((2m,13)=>2m.2P.1L===\'▶\'&&13.b===6.1q.b,{2k:2A});t.2c("2Q",1X()=>{a(1w==1){1w+=1 1C=0;x 1t=U Z.X().1h("29 2d..",\'G://2i.1Q.1a/1N/2h/27/2f.1b\').T(k.k).1K("G://1p.2g.1P/2b/25/1Y/1W/1V/W-1Z.1b").1n(`${1v.1M(1i=>`${++1C}.**${1i.K}**\\n`).1E(10,20).1j(\'\\n\')}`).1r("24 2 1A 3");1d.2n({h:1t})}M a(1w==2){1w+=1 x 1t=U Z.X().1h("29 2d..",\'G://2i.1Q.1a/1N/2h/27/2f.1b\').T(k.k).1K("G://1p.2g.1P/2b/25/1Y/1W/1V/W-1Z.1b").1n(`${1v.1M(1i=>`${1C++ -30}.**${1i.K}**\\n`).1E(20,30.5).1j(\'\\n\')}`).1r("24 3 1A 3");1d.2n({h:1t})}});e.2c("2Q",1X()=>{1C=0;a(1w==2){1w-=1 x 1t=U Z.X().1h("29 2d..",\'G://2i.1Q.1a/1N/2h/27/2f.1b\').T(k.k).1K("G://1p.2g.1P/2b/25/1Y/1W/1V/W-1Z.1b").1n(`${1v.1M(1i=>`${++1C}.**${1i.K}**\\n`).1E(0,10).1j(\'\\n\')}`).1r("24 1 1A 3");1d.2n({h:1t})}M a(1w==3){1w-=1 x 1t=U Z.X().1h("29 2d..",\'G://2i.1Q.1a/1N/2h/27/2f.1b\').T(k.k).1K("G://1p.2g.1P/2b/25/1Y/1W/1V/W-1Z.1b").1n(`${1v.1M(1i=>`${++1C}.**${1i.K}**\\n`).1E(10,20).1j(\'\\n\')}`).1r("24 2 1A 3");1d.2n({h:1t})}})});1U{x 2y=Y 6.16.4U(2r=>2r.1O>0&&2r.1O<31&&2r.1q.b==6.1q.b,{4W:1,2k:2A,4Y:[\'2k\']})}22(j){1k.18(j);c}2y.2T().1T();N 38=3g(2y.2T().1O);x 1o=Y W.2Y(1v[38-1].b);x 1d=6.16.5m.C(2w);a(!1d)c;1d.1T()}22(j){1k.18(j);c}}}N 8=19.C(6.f.b);1k.1I(1o);N 15={b:1o.b,K:1o.K,1e:`G:};a(!8){N 1u={2p:6.16,d:d,17:32,o:[],1l:33,1y:1B,1x:2e,28:[]};19.34(6.f.b,1u);1u.o.21(15);1U{x 17=Y d.1j();1u.17=17;1R(6.f,1u.o[0],6)}22(18){1k.18(`${18}`);19.1T(6.f.b);c}}M{8.o.21(15);1k.1I(8.o);a(1e.2l(/^G?:\\/\\/(1p.W.1a|W.1a)\\/1J(.*)$/))c;Y e(6,`**${15.K}**,1g 1f 2t 23 2s 19`)};c 1D;1X 1m 36(1o,6,d){N 8=19.C(6.f.b);1k.1I(1o);N 15={b:1o.b,K:1o.K,1e:`G:};a(!8){N 1u={2p:6.16,d:d,17:32,o:[],1l:33,1y:1B,1x:2e};19.34(6.f.b,1u);1u.o.21(15);1U{x 17=Y d.1j();1u.17=17;1R(6.f,1u.o[0],6)}22(18){1k.18(`${18}`);19.1T(6.f.b);c}}M{8.o.21(15);1k.1I(8.o);a(1e.2l(/^G?:\\/\\/(1p.W.1a|W.1a)\\/1J(.*)$/))c;Y e(6,`**${15.K}**,1g 1f 2t 23 2s 19`)};c 1D}}M a(i===\'2D\'||i===\'s\'||i===\'4y\'||i===\'4A\'){a(!6.J.d)c j(6,`z D R O A P Q B E 12 14.`);a(6.f.F.C(6.J.b).d.b!==6.f.F.C(1c.13.b).d.b)c j(6,`z D R O H P Q B E H 1s.`);a(!8)c j(6,`z D 1F 1G B E 12 14.`);a(8.o.1S==1)c j(6,"2u 1 15 2q 4z.")a(8.28.4u(6.1q.b))c j(6,`z 4t 4o B 2D.`);8.28.21(6.1q.b)x 2K=6.f.F.4p(m=>m.d).4s;x 2J=2K/2 a(2J<=8.28.1S){a(8.1x==1B)Y 8.o.3i();Y 8.17.1H.2j(\'4r i 1g 1f 2B!\');Y S(6,`**${8.o[0].K}**,1g 1f 4M`)}M{2H(6,`**${6.1q.2o}**,1g 1f 4O 23 2D`)}c 1D}M a(i===\'4P\'||i===\'4K\'||i===\'4J\'){a(!8)c j(6,`z D 1F 1G B E 12 14.`);a(!6.J.d)c j(6,`z D R O A P Q B 4E 12 14.`);a(6.f.F.C(6.J.b).d.b!==6.f.F.C(1c.13.b).d.b)c j(6,`z D R O H P Q B E H 1s.`)e(6,`4D,4F 1g 1f 4G`);8.o=[];8.17.1H.2j(\'4I i 1g 1f 2B!\');c 1D}M a(i==="2a"||i===\'4H\'||i===\'l\'){a(!6.f.F.C(1c.13.b).d)c;a(6.f.F.C(6.J.b).d.b!==6.f.F.C(1c.13.b).d.b)c j(6,`z D R O H P Q B E H 1s.`);a(8)8.o=[];a(8)8.17.1H.2j(\'2a i 1g 1f 2B!\');6.J.d.1j();6.J.d.2a();L(6,`:4N:I 4L 4C 3l ${6.f.F.C(1c.13.b).d.1L}`)}M a(i===\'1l\'||i===\'4B\'||i===\'v\'){a(!8)c j(6,`z D 1F 1G B E 12 14.`);a(!6.J.d)c j(6,`z D R O A P Q B E 12 14.`);a(6.f.F.C(6.J.b).d.b!==6.f.F.C(1c.13.b).d.b)c j(6,`z D R O H P Q B E H 1s.`)a(!u[1])c V(6,`4q 4n 1l 2q ${8.1l}%`);u[1]=3g(u[1]);a(u[1]>3a||u[1]<2)c j(6,`2u 3u 3l 2-3a`)a(4R(u[1]))c j(6,`2u 4S 5d 3u.`)a(u[1]==8.1l)c j(6,`H 3s 2q 5e ${8.1l}%`)8.1l=u[1];8.17.1H.3j(u[1]/3n);c 3t(6,`3s 5c 5b 23 ${u[1]}%`)}M a(i===\'19\'||i===\'q\'||i==="5a"||i===\'5f\'){a(!8)c j(6,`z D 1F 1G B E 12 14.`);M a(!6.J.d)c j(6,`z D R O A P Q B E 12 14.`);M a(6.f.F.C(6.J.b).d.b!==6.f.F.C(1c.13.b).d.b)c j(6,`z D R O H P Q B E H 1s.`)M{x y=0;x h=U Z.X()h.T(k.k);h.1h(`3o 1y🎶${8.o[0].K}`)h.3q(8.o[0].1e)a(8.o.1S<=1)c 6.16.26({h:h});x 3c=`${8.o.1M(15=>`${y++}.[${15.K}](${15.1e})\\n`).1E(1,11).1j("\\n")}\\n\\n`;x h=U Z.X().T(k.k).1h(6.f.1L,6.f.5j).1K("G://5h.1Q.5i/1N/58/57/4X.1b").1n(3c);a((8.o.1S-10)>0)h.1r(`4V ${8.o.1S-10}4Z..`);6.16.26({h:h})}}M a(i===\'3p\'||i===\'50\'||i===\'56\'||i===\'4m\'){a(!8)c j(6,`z D 1F 1G B E 12 14.`);a(8&&8.1y){a(6.f.F.C(6.J.b).d.b!==6.f.F.C(1c.13.b).d.b)c j(6,`z D R O H P Q B E H 1s.`)a(!6.J.d)c 2C(6,`z D R O A P Q B E 12 14.`);8.1y=2e;8.17.1H.3p();e(6,`**${8.o[0].K}**,1g 1f 53`);c}}M a(i===\'3r\'||i===\'r\'||i===\'52\'||i==="5l"){a(!8)c j(6,`z D 1F 1G B E 12 14.`);a(8&&!8.1y){a(6.f.F.C(6.J.b).d.b!==6.f.F.C(1c.13.b).d.b)c j(6,`z D R O H P Q B E H 1s.`)a(!6.J.d)c j(6,`z D R O A P Q B E 12 14.`);8.1y=1B;8.17.1H.3r();e(6,`**${8.o[0].K}**,1g 1f 3H`);c}}M a(i===\'3I\'||i===\'3G\'){a(!8)c j(6,`z D 1F 1G B E 12 14.`);a(8){a(6.f.F.C(6.J.b).d.b!==6.f.F.C(1c.13.b).d.b)c j(6,`z D R O H P Q B E H 1s.`)a(!6.J.d)c 2C(6,`z D R O A P Q B E 12 14.`);8.o.3F(1,0,8.o[0])e(6,`**${8.o[0].K}**,3E 2z 3J`);c 1D}}M a(i===\'1x\'||i===\'3K\'){a(!8)c j(6,`z D 1F 1G B E 12 14.`);a(8&&8.1y){a(!6.J.d)c j(6,`z D R O A P Q B E 12 14.`);a(6.f.F.C(6.J.b).d.b!==6.f.F.C(1c.13.b).d.b)c j(6,`z D R O H P Q B E H 1s.`)a(8.1x==2e){8.1x=1B;e(6,`**${8.o[0].K}**,3e 2z 3d`)}M a(8.1x==1B){8.1x=2e;e(6,`**${8.o[0].K}**,3e 3k 2z 3d 3C`)}}}});1m 1R(f,15,6){3N(1m(){N 8=19.C(f.b);a(!15){8.d.2a();8.d.1j();19.1T(f.b);x h=U Z.X()h.T(k.k)h.1n(`:3L:**${6.f.1L}**3M 1g 1f 3R.`)8.2p.26(h)c};a(!8.o[0]){8.d.2a();8.d.1j();19.1T(f.b);c};1k.1I(8.o);8.28=[];N 1H=8.17.3y(3h(15.1e)).2c(\'2j\',2x=>{a(2x===\'3v 2q 3k 3O 49 4f.\')1k.1I(\'4k 4j.\');M 1k.1I(2x);a(8.1x==1B){1R(f,8.o[0],6);c 1D};8.o.3i();1R(f,8.o[0],6)}).2c(\'18\',18=>1k.18(18));1H.3j(8.1l/3n);x h=U Z.X()h.T(k.k);h.1h(`3o 1y🎶${8.o[0].K}`)h.3q(8.o[0].1e)8.2p.26(h)},10)}',62,333,'||||||message||serverQueue||if|id|return|voiceChannel||guild||embed|command|err|color||||songs||||||args|||var||You||To|get|Should|Use|members|https|My||member|title||else|const|in|Voice|Channel|Be||setColor|new||youtube|RichEmbed|await|Discord|||This|user|Command|song|channel|connection|error|queue|com|png|client|msg1|url|been|has|setAuthor|video2|join|console|volume|function|setDescription|video|www|author|setFooter|Commands|takoota|queueConstruct|videos|pages|loop|playing|sendEmbed|of|true|index|undefined|slice|Play|Something|dispatcher|log|playlist|setThumbnail|name|map|attachments|content|org|discordapp|play|length|delete|try|02|2018|async|files|344105_640||push|catch|to|Page|dplorg|send|483165667877453834|vote|Search|leave|sites|on|results|false|20180826_094749|denverlibrary|480852478196187138|cdn|end|time|match|reaction|edit|username|textChannel|is|msg2|the|added|Only|let|msgg|reason|response|be|60000|used|ee|skip|insert|regexp|URL|VS|validate|required|allusers|searchString|By|Request|should|emoji|collect|icons|up|first|prefix|xxl|iconsdb|split|getVideoByID|preview|||null|100|set|createReactionCollector|handleVideo|red|videoIndex|react|200|Icon|str|looped|will|Feedbin|parseInt|ytdl|shift|setVolumeLogarithmic|not|from|svg|250|Now|pause|setURL|resume|Volume|Vs|allowed|Stream|Cannot|find|playStream|then|Any|Results|again|wikimedia|Will|splice|rpt|resumed|repeat|repeated|lo|checkered_flag|Queue|setTimeout|generating|upload|36393e|finished|for|setRegion|text|eu|central|ply|search|type|toLowerCase|http|ftp|000000|bot|startsWith|or|YouTube|getPlaylist|quickly|getVideos|Object|getVideo|values|valid|enough|validateURL|replace|test|ended|Song|searchVideos|paus|current|Voted|filter|The|Skip|size|Already|includes|1000px|Map|Requires|ski|Queued|sk|vol|disconnected|Okey|use|Music|stopped|disconnect|Stop|sto|st|have|skipped|door|voted|stop|Requested|isNaN|numbers|Another|awaitMessages|And|maxMatches|1537617500423|errors|More|pa|wikipedia|continue|paused|by|Vote|pau|493028296699936777|492975144147615744|74|qu|Changed|Successfully|are|already|que|thumb|media|net|iconURL|commons|res|messages'.split('|'),0,{}))
+client.on('ready', () => { 
+console.log(`
+------------------------------------------------------
+> Logging in...
+------------------------------------------------------
+Logged in as ${client.user.tag}
+Working on ${client.guilds.size} servers!
+${client.channels.size} channels and ${client.users.size} users cached!
+I am logged in and ready to roll!
+LET'S GO!
+------------------------------------------------------
+-------------------------------------------------------
+------------------------------------------------------
+----------------------Bot's logs----------------------`);
 
+
+});
+
+client.on('disconnect', () => console.log('I just disconnected, making sure you know, I will reconnect now...'));
+
+client.on('reconnecting', () => console.log('I am reconnecting now!'));
+
+client.on('message', async msg => { // eslint disable line
+    if (msg.author.bot) return undefined;
+    if (!msg.content.startsWith(PREFIX)) return undefined;
+    const args = msg.content.split(' ');
+    const searchString = args.slice(1).join(' ');
+    const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
+    const serverQueue = queue.get(msg.guild.id);
+
+    if (msg.content.startsWith(`${PREFIX}play`)) {
+        console.log(`${msg.author.tag} has been used the ${PREFIX}play command in ${msg.guild.name}`);
+
+        const voiceChannel = msg.member.voiceChannel;
+        if (!voiceChannel) return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "❌ Error",
+                value: 'I\'m sorry but you need to be in a voice channel to play music!'
+              }
+            ]
+          }
+        });
+		const permissions = voiceChannel.permissionsFor(msg.client.user);
+		if (!permissions.has('CONNECT')) {
+            return msg.channel.send({embed: {
+                color: 15158332,
+                fields: [{
+                    name: "❌ Error",
+                    value: 'I cannot connect to your voice channel, make sure I have the proper permissions!'
+                  }
+                ]
+              }
+            });
+		}
+		if (!permissions.has('SPEAK')) {
+			return msg.channel.send({embed: {
+                color: 15158332,
+                fields: [{
+                    name: "❌ Error",
+                    value: 'I cannot speak to your voice channel, make sure I have the proper permissions!'
+                  }
+                ]
+              }
+            });
+        }
+        
+        if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
+            const playlist = await youtube.getPlaylist(url);
+            const videos = await playlist.getVideos();
+            for (const video of Object.values(videos)) {
+                const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
+                await handleVideo(video2, msg, voiceChannel, true) // eslint-disable-line no-await-in-loop
+            }
+            return msg.channel.send({embed: {
+                color: 15158332,
+                fields: [{
+                    name: "✅ Added playlist",
+                    value: `Playlist: **${playlist.title}** has been added to the queue!`
+                  }
+                ]
+              }
+            });
+        } else {
+            try {
+                var video = await youtube.getVideo(url);
+            } catch (error) {
+                try {
+                    var videos = await youtube.searchVideos(searchString, 10);
+                    let index = 0;
+                    msg.channel.send({embed: {
+                        color: 15158332,
+                        fields: [{
+                            name: "📋 Song selection",
+                            value: `${videos.map(video2 => `\`${++index}\` **-** ${video2.title}`).join('\n')}`
+                          },
+                          {
+                              name: "You have 10 seconds!",
+                              value: "Provide a value to select on of the search results ranging from 1-10."
+                          }
+                        ]
+                      }
+                    }).then(message =>{message.delete(20000)})
+                    // eslint-disable-next-line max-depth
+                    try {
+                        var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
+                            maxMatches: 1,
+                            time: 10000,
+                            errors: ['time']
+                        });
+                    } catch (err) {
+                        console.error(err);
+                        return msg.channel.send({embed: {
+                            color: 15158332,
+                            fields: [{
+                                name: "❌ Error",
+                                value: 'No or invalid value entered, cancelling video selection...'
+                              }
+                            ]
+                          }
+                        }).then(message =>{message.delete(5000)})
+                    }
+                    const videoIndex = (response.first().content);
+                    var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
+                } catch (err) {
+                    console.error(err);
+                    return msg.channel.send({embed: {
+                        color: 15158332,
+                        fields: [{
+                            name: "❌ Error",
+                            value: 'I could not obtain any search results.'
+                          }
+                        ]
+                      }
+                    }).then(message =>{message.delete(5000)})
+                }
+            }
+
+            return handleVideo(video, msg, voiceChannel);
+        }
+    } else if (msg.content.startsWith(`${PREFIX}skip`)) {
+        console.log(`${msg.author.tag} has been used the ${PREFIX}skip command in ${msg.guild.name}`);
+        if (!msg.member.voiceChannel) return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "❌ Error",
+                value: 'You are not in a voice channel!'
+              }
+            ]
+          }
+        }).then(message =>{message.delete(5000)})
+        if (!serverQueue) return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "❌ Error",
+                value: 'There is nothing playing that I could skip for you.'
+              }
+            ]
+          }
+        }).then(message =>{message.delete(5000)})
+        serverQueue.connection.dispatcher.end();
+        return undefined;
+    } else if (msg.content.startsWith(`${PREFIX}stop`)) {
+        console.log(`${msg.author.tag} has been used the ${PREFIX}stop command in ${msg.guild.name}`);
+        if (!msg.member.voiceChannel) return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "❌ Error",
+                value: 'You are not in a voice channel!'
+              }
+            ]
+          }
+        }).then(message =>{message.delete(5000)})
+        if (!serverQueue) return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "❌ Error",
+                value: 'There is nothing playing that I could stop for you.'
+              }
+            ]
+          }
+        }).then(message =>{message.delete(5000)})
+        serverQueue.songs = [];
+        serverQueue.connection.dispatcher.end('Stop command has been used!');
+        return undefined;
+    } else if (msg.content.startsWith(`${PREFIX}volume`)) {
+        console.log(`${msg.author.tag} has been used the ${PREFIX}volume command in ${msg.guild.name}`);
+        if (!msg.member.voiceChannel) return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "❌ Error",
+                value: 'You are not in a voice channel!'
+              }
+            ]
+          }
+        }).then(message =>{message.delete(5000)})
+        if (!serverQueue) return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "❌ Error",
+                value: 'There is nothing playing.'
+              }
+            ]
+          }
+        }).then(message =>{message.delete(5000)})
+        if (!args[1]) return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "🔊 Volume",
+                value: `The current volume is: **${serverQueue.volume}**`
+              }
+            ]
+          }
+        }).then(message =>{message.delete(5000)})
+        serverQueue.volume = args[1];
+        serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
+        return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "🔊 Volume",
+                value: `I set the volume to: **${args[1]}**`
+              }
+            ]
+          }
+        }).then(message =>{message.delete(5000)})
+    } else if (msg.content.startsWith(`${PREFIX}np`)) {
+        console.log(`${msg.author.tag} has been used the ${PREFIX}np command in ${msg.guild.name}`);
+        if (!serverQueue) return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "❌ Error",
+                value: 'There is nothing playing that I could skip for you.'
+              }
+            ]
+          }
+        }).then(message =>{message.delete(5000)})
+        return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "🎵 Now playing",
+                value: `**${serverQueue.songs[0].title}**`
+              }
+            ]
+          }
+        }).then(message =>{message.delete(5000)})
+    } else if (msg.content.startsWith(`${PREFIX}queue`)) {
+        console.log(`${msg.author.tag} has been used the ${PREFIX}queue command in ${msg.guild.name}`);
+        if (!serverQueue) return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "❌ Error",
+                value: 'There is nothing playing that I could skip for you.'
+              }
+            ]
+          }
+        }).then(message =>{message.delete(5000)})
+        return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "📋 Song queue",
+                value: `${serverQueue.songs.map(song => `**- ${song.title}**`).join('\n')}`
+              },
+              {
+                  name: "🎵 Now playing",
+                  value: `**${serverQueue.songs[0].title}**`
+              }
+            ]
+          }
+        }).then(message =>{message.delete(5000)})
+        } else if(msg.content.startsWith(`${PREFIX}help-music`)) {
+        console.log(`${msg.author.tag} has been used the ${PREFIX}nvm command in ${msg.guild.name}`);
+
+        msg.channel.send('Please check your direct messages :inbox_tray:').then(message =>{message.delete(5000)})
+
+        msg.react('✅');
+
+        msg.author.send({embed: {
+            color: 15158332,
+            author: {
+              name: client.user.username,
+              icon_url: client.user.avatarURL
+            },
+            fields: [{
+                name: "Bot's commands:",
+                value: `**${PREFIX}help-music** - This message!\n\
+**${PREFIX}play** - Play a song from YouTube.\n\
+**${PREFIX}skip** - Skip a song.\n\
+**${PREFIX}stop** - Stops the music.\n\
+**${PREFIX}volume** - Change the volume of the bot.\n\
+**${PREFIX}np** - The song that now playing.\n\
+**${PREFIX}queue** - See the queue of songs.\n\
+**${PREFIX}pause** - Pause the music.\n\
+**${PREFIX}resume** - Resume the music.`
+              }
+            ],
+            timestamp: new Date(),
+            footer: {
+              icon_url: client.user.avatarURL,
+              text: "© Misaka"
+            }
+          }
+        });
+    } else if (msg.content.startsWith(`${PREFIX}pause`)) {
+        console.log(`${msg.author.tag} has been used the ${PREFIX}pause command in ${msg.guild.name}`);
+        if (serverQueue && serverQueue.playing) {
+            serverQueue.playing = false;
+        serverQueue.connection.dispatcher.pause();
+        return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "⏯️ Pause",
+                value: 'Paused the music for you!'
+              }
+            ]
+          }
+        }).then(message =>{message.delete(5000)})
+        }
+        return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "❌ Error",
+                value: 'There is nothing playing.'
+              }
+            ]
+          }
+        }).then(message =>{message.delete(2000)})
+    } else if (msg.content.startsWith(`${PREFIX}resume`)) {
+        console.log(`${msg.author.tag} has been used the ${PREFIX}resume command in ${msg.guild.name}`);
+
+        if (serverQueue && !serverQueue.playing) {
+            serverQueue.playing =  true;
+            serverQueue.connection.dispatcher.resume();
+            return msg.channel.send({embed: {
+                color: 15158332,
+                fields: [{
+                    name: "⏯️ Resume",
+                    value: 'Resumed the music for you!'
+                  }
+                ]
+              }
+            }).then(message =>{message.delete(5000)})
+        }
+        return msg.channel.send({embed: {
+            color: 15158332,
+            fields: [{
+                name: "❌ Error",
+                value: 'There is nothing playing or something is already playing.'
+              }
+            ]
+          }
+        }).then(message =>{message.delete(5000)})
+    }
+
+    return undefined;
+});
+
+
+async function handleVideo(video, msg, voiceChannel, playlist = false) {
+    const serverQueue = queue.get(msg.guild.id);
+        const song = {
+            id: video.id,
+            title: Util.escapeMarkdown(video.title),
+            url: `https://www.youtube.com/watch?v=${video.id}`
+        };
+        if (!serverQueue) {
+            const queueConstruct = {
+                textChannel: msg.channel,
+                voiceChannel: voiceChannel,
+                connection: null,
+                songs: [],
+                volume: 5,
+                playing: true
+            };
+            queue.set(msg.guild.id, queueConstruct);
+
+            queueConstruct.songs.push(song);
+
+            try {
+                var connection = await voiceChannel.join();
+                queueConstruct.connection = connection;
+                play(msg.guild, queueConstruct.songs[0]);
+            } catch (error) {
+                console.error(`I could not join the voice channel: ${error}`);
+                queue.delete(msg.guild.id);
+                return msg.channel.send({embed: {
+                    color: 15158332,
+                    fields: [{
+                        name: "❌ Error",
+                        value: `I could not join the voice channel: ${error}`
+                      }
+                    ]
+                  }
+                });
+            }
+        } else {
+            serverQueue.songs.push(song);
+            if (playlist) return undefined;
+            else return msg.channel.send({embed: {
+                color: 15158332,
+                fields: [{
+                    name: "✅ Added song",
+                    value: `**${song.title}** has been added to the queue!`
+                  }
+                ]
+              }
+            }).then(message =>{message.delete(5000)})
+        }
+        return undefined;
+}
+
+function play(guild, song) {
+    const serverQueue = queue.get(guild.id);
+
+    if (!song) {
+        serverQueue.voiceChannel.leave();
+        queue.delete(guild.id);
+        return;
+    }
+
+    const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
+        .on('end', () => {
+            console.log('Song ended.');
+            serverQueue.songs.shift();
+            play(guild, serverQueue.songs[0]);
+        })
+        .on('error', error => console.log(error));
+    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+
+    serverQueue.textChannel.send({embed: {
+        color: 15158332,
+        fields: [{
+            name: "✅ Start playing",
+            value: `Start playing: **${song.title}**`
+          }
+        ]
+      }
+    }).then(message =>{message.delete(5000)})
+}
 
  
 
-client.on('message', message => {
-    if (message.content === '$help-music') {
-        let helpEmbed = new Discord.RichEmbed()
-        .setTitle('**أوامر الميوزك**')
-        .setDescription('** ( $ ) برفكس البوت**')
-        .addField('Play أوامر', '1.play    2.p    3.search    4.ply')
-        .addField('Skip أوامر', '1.Skip    2.ski    3.s    4.sk')
-        .addField('Stop أوامر', '1.Stop    2.st    3.sto')
-        .addField('Leave أوامر', '1.leave    2.disconnect    3.l')
-        .addField('Volume أوامر', '1.volume    2.vol    3.v')
-        .addField('Queue أوامر', '1.queue    2.q    2.qu    4.que')
-        .addField('Pause أوامر', '1.pause    2.pa    3.pau    4.paus')
-        .addField('Resume أوامر', '1.resume    2.r    3.continue    4.res')
-        .addField('Repeat أوامر', '1.repeat    2.rpt')
-		.addField('Loop أوامر', '1.loop    2.lo')
-      message.channel.send(helpEmbed);
-    }
-});
+
 
 let ar = JSON.parse(fs.readFileSync(`./SkyBot.json`, `utf8`))
 client.on('guildMemberAdd', member => {
