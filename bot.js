@@ -8,6 +8,8 @@ const getYoutubeID = require('get-youtube-id');
 
 const Canvas = require("canvas");
 
+const queue = new Map();
+
 const jimp = require("jimp");
 
 const convert = require("hh-mm-ss");
