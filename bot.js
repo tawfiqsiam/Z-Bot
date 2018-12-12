@@ -3648,7 +3648,310 @@ client.on('guildMemberAdd',async member => {
   });
   });
 
+client.on('message', message => {
+if (message.content.startsWith("$translate")) {
 
+const translate = require('google-translate-api');
+let toTrans = message.content.split(' ').slice(1);
+let language;
+
+language = toTrans[toTrans.length - 2] === 'to' ? toTrans.slice(toTrans.length - 2, toTrans.length)[1].trim() : undefined;
+if (!language) {
+return message.reply(`Please supply valid agruments.\n**Example** \`d!tr [text] to [language]\``);
+}
+let finalToTrans = toTrans.slice(toTrans.length - toTrans.length, toTrans.length - 2).join(' ');
+translate(finalToTrans, {to: language}).then(res => {
+   message.channel.send({embed: {
+       color: 3447003,
+       author: {
+         name: 'Z Bot translator',
+         icon_url: client.user.avatarURL
+       },
+       fields: [{
+           name: "Z Bot",
+           value: `**From:** ${res.from.language.iso}\n\`\`\`${finalToTrans}\`\`\`\n**To: **${language}\n\`\`\`${res.text}\`\`\``
+         }
+       ],
+       timestamp: new Date(),
+       footer: {
+         icon_url: client.user.avatarURL,
+         text: "Z Bot"
+       }
+     }
+   });
+}).catch(err => {
+message.channel.send({
+   embed: {
+       description: '❌ We could not find the supplied language.',
+       color: 0xE8642B
+   }
+});
+});
+}
+});
+
+client.on('message', message => {
+     if (message.content === "$servers") {
+		 if(!message.channel.guild) return;
+     let embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .addField("**Servers: **" , client.guilds.size)
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', async message => {
+    let messageArray = message.content.split(" ");
+   if(message.content.startsWith(prefix + "setSay")) {
+    let filter = m => m.author.id === message.author.id;
+    let role;
+ 
+    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send('You don\'t have permission').then(msg => {
+       msg.delete(4500);
+       message.delete(4500);
+    });
+   
+    message.channel.send(':pencil: **| Please Type The Role Required To Type The Say Command ... :pencil2: **').then(msg => {
+ 
+        message.channel.awaitMessages(filter, {
+          max: 1,
+          time: 90000,
+          errors: ['time']
+        })
+    
+        .then(collected => {
+            collected.first().delete();
+            role = collected.first().content;
+            let replymsg;
+            msg.edit(':scroll: **| Now Please Type The Answer If He Dont Have The Required Role ... :pencil2: **').then(msg => {
+     
+                message.channel.awaitMessages(filter, {
+                  max: 1,
+                  time: 90000,
+                  errors: ['time']
+                })
+                .then(collected => {
+                    collected.first().delete();
+                    replymsg = collected.first().content;
+                    msg.edit('✅ **| Successfully Setup !...  **').then(msg => {
+       
+                      message.channel.awaitMessages(filter, {
+                        max: 1,
+                        time: 90000,
+                        errors: ['time']
+                      })
+                    
+      let embed = new Discord.RichEmbed()
+      .setTitle('**Done The Say Code Has Been Setup**')
+      .addField('Say Role:', `${role}`)
+      .addField('Say Role Reply:', `${replymsg}`)
+      .addField('Requested By:', `${message.author}`)
+      .setThumbnail(message.author.avatarURL)
+      .setFooter(`${client.user.username}`)
+      .setColor('RANDOM')
+      say[message.guild.id] = {
+      onoff: 'On',
+      sayembed: 'On',
+      reply: replymsg,
+      sayrole: role
+      },
+      message.channel.sendEmbed(embed)
+      fs.writeFile("./say.json", JSON.stringify(say), (err) => {
+      if (err) console.error(err)
+    })
+      })
+    })
+   })
+ })
+})
+   }})
+   
+   client.on('message', message => {
+    let args = message.content.split(" ").slice(1);
+if(message.content.startsWith(prefix + 'embedsay')) {
+    if(say[message.guild.id].onoff === 'Off') return;
+    if(say[message.guild.id].sayembed === 'Off') return;
+    let staff = message.guild.member(message.author).roles.find('name' , `${say[message.guild.id].sayrole}`);
+    if(!staff) return message.channel.send(`${say[message.guild.id].replymsg}`)    
+let embed = new Discord.RichEmbed()
+.setDescription(args)
+message.channel.sendEmbed(embed)
+}})
+
+      
+client.on('message', message => {
+  
+  if(message.content.startsWith(prefix + "toggleSay")) {
+      if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+      if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+      if(!say[message.guild.id]) say[message.guild.id] = {
+        onoff: 'Off'
+      }
+        if(say[message.guild.id].onoff === 'Off') return [message.channel.send(`**The Say Is __𝐎𝐍__ !**`), say[message.guild.id].onoff = 'On']
+        if(say[message.guild.id].onoff === 'On') return [message.channel.send(`**The Say Is __𝐎𝐅𝐅__ !**`), say[message.guild.id].onoff = 'Off']
+        fs.writeFile("./say.json", JSON.stringify(say), (err) => {
+          if (err) console.error(err)
+          .catch(err => {
+            console.error(err);
+        });
+          });
+        }
+        
+      })
+      
+      client.on('message', message => {
+  
+        if(message.content.startsWith(prefix + "toggleEmbed")) {
+            if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+            if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+            if(!say[message.guild.id]) say[message.guild.id] = {
+              embed: 'Off'
+            }
+              if(say[message.guild.id].sayembed === 'Off') return [message.channel.send(`**The Say Embed Is __𝐎𝐍__ !**`), say[message.guild.id].sayembed = 'On']
+              if(say[message.guild.id].sayembed === 'On') return [message.channel.send(`**The Say Embed Is __𝐎𝐅𝐅__ !**`), say[message.guild.id].sayembed = 'Off']
+              fs.writeFile("./say.json", JSON.stringify(say), (err) => {
+                if (err) console.error(err)
+                .catch(err => {
+                  console.error(err);
+              });
+                })
+              }
+              
+            })
+
+
+            client.on('message', message => {
+
+        if (message.author.bot) return;
+      
+        if (!message.content.startsWith(prefix)) return;
+      
+      
+        let command = message.content.split(" ")[0];
+      
+        command = command.slice(prefix.length);
+      
+      
+        let args = message.content.split(" ").slice(1);
+let embed = new Discord.RichEmbed()
+.setTitle(args)
+      
+      
+        if (command === "say") {
+          
+          if(say[message.guild.id].onoff === 'Off') return;
+          let staff = message.guild.member(message.author).roles.find('name' , `${say[message.guild.id].sayrole}`);
+          if(!staff) return message.channel.send(`${say[message.guild.id].replymsg}`)      
+                message.delete()
+                if(!say[message.guild.id].sayembed === 'On') return message.sendEmbed(say)
+                message.channel.sendMessage(args)
+        }})
+      
+client.on('message', message => {
+  if(message.content.startsWith(prefix + "infoSay")) {
+let embed = new Discord.RichEmbed()
+.addField('Say Status', `${say[message.guild.id].onoff}`)
+.addField('Say Role:', `${say[message.guild.id].sayrole}`)
+.addField('Say Embed Status:', `${say[message.guild.id].embed}`)
+.addField('Requested By', `${message.author}`)
+.setThumbnail('https://a.top4top.net/p_10555ubbl1.png')
+.setImage(message.author.avatarURL)
+.setFooter(`${client.user.username}`)
+.setColor('RANDOM')
+message.channel.sendEmbed(embed)
+  }})
+
+client.on('message', message => {
+    if(!message.channel.guild) return;
+if(message.content.startsWith('$rolebc')) {
+if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+let args2 = message.content.split(" ").join(" ").slice(2 + prefix.length);
+let args3 = message.content.split("  ").join("  ").slice(3 + prefix.length);
+let bcrole = message.guild.roles.find('name', args2)
+if(!args2) return message.channel.send('اكتب اسم الرتبه')
+if(!bcrole) return message.channel.send('I Cant Find This Role')
+let copy = "Reaper";
+let request = `Requested By ${message.author.username}`;
+if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
+msg.react('✅')
+.then(() => msg.react('❌'))
+.then(() =>msg.react('✅'))
+
+let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
+let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
+let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
+reaction1.on("collect", r => {
+message.channel.send(`☑ |   ${message.guild.members.size} يتم ارسال البرودكاست الى عضو `).then(m => m.delete(5000));
+najzx.guild.members.filter(m => m.roles.get(bcrole.id)).forEach(m => {
+    var bc = new Discord.RichEmbed()
+.setColor('RANDOM')
+.setTitle(':mega: برودكاست')
+.addField('🔰السيرفر🔰', message.guild.name)
+.addField('🚩المرسل🚩', message.author.username)
+.addField('📜الرسالة📜', args3)
+.setThumbnail('https://a.top4top.net/p_1008gqyyd1.png')
+.setFooter(copy, client.user.avatarURL);
+m.send({ embed: bc })
+msg.delete();
+})
+})
+reaction2.on("collect", r => {
+message.channel.send(`**Broadcast Canceled.**`).then(m => m.delete(5000));
+msg.delete();
+})
+})
+}
+})
+
+
+client.on('message',async message => {
+  if(message.content === '$unbanall') {
+    var user = message.mentions.users.first();
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('❌|**\`ADMINISTRATOR\`لا توجد لديك صلاحية `**');
+    if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+    const guild = message.guild;
+
+  message.guild.fetchBans().then(ba => {
+  ba.forEach(ns => {
+  message.guild.unban(ns);
+  const embed= new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setAuthor("Succes!", "https://images-ext-1.discordapp.net/external/vp2vj9m0ieU5J6SHg6ObIsGpTJyoZnGAebrd0_vi848/https/i.imgur.com/GnR2unD.png?width=455&height=455")
+        .setDescription(`**:white_check_mark: Has Been Unban For All**`)
+    .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+  message.channel.sendEmbed(embed);
+  guild.owner.send(`سيرفر : ${guild.name}
+  **تم فك الباند عن الجميع بواسطة** : <@${message.author.id}>`) 
+  });
+  });
+  }
+  });
+
+client.on('message', msg => {
+  if(msg.content === '$hideall') {
+    msg.guild.channels.forEach(c => {
+      c.overwritePermissions(msg.guild.id, {
+        SEND_MESSAGES: false,
+        READ_MESSAGES: false
+      })
+    })
+    msg.channel.send('Done')
+  }
+})   
+
+client.on('message', msg => {
+  if(msg.content === '$showall') {
+    msg.guild.channels.forEach(c => {
+      c.overwritePermissions(msg.guild.id, {
+        SEND_MESSAGES: true,
+        READ_MESSAGES: true
+      })
+    })
+    msg.channel.send('.')
+  }
+})      
  
   
 
