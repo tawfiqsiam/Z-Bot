@@ -2,7 +2,7 @@ const Discord = require('discord.js'); //Z Bot
 
 const Util = require('discord.js');
 
-const GOOGLE_API_KEY = "AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8"
+const GOOGLE_API_KEY = "AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8" //Z
 
 const getYoutubeID = require('get-youtube-id');
 
