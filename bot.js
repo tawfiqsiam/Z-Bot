@@ -8,6 +8,8 @@ const getYoutubeID = require('get-youtube-id');
 
 const Canvas = require("canvas");
 
+const mmss = require("ms");
+
 const queue = new Map();
 
 const jimp = require("jimp");
@@ -3835,7 +3837,140 @@ client.on('message', msg => {
     })
     msg.channel.send('.')
   }
-})      
+})   
+
+client.on('message', async message => {
+            let muteReason = message.content.split(" ").slice(3).join(" ");
+            let mutePerson = message.mentions.users.first();
+            let messageArray = message.content.split(" ");
+            let muteRole = message.guild.roles.find("name", "Muted");
+            let time = messageArray[2];
+            if(message.content.startsWith(prefix + "tempmute")) {
+                if(!message.member.hasPermission('MUTE_MEMBERS')) return message.channel.send('**Sorry But You Dont Have Permission** `MUTE_MEMBERS`' );
+                if(!mutePerson) return message.channel.send('**Mention Someone**')
+                if(mutePerson === message.author) return message.channel.send('**You Cant Mute Yourself**');
+                if(mutePerson === client.user) return message.channel.send('**You Cant Mute The Bot**');
+                if(message.guild.member(mutePerson).roles.has(muteRole.id)) return message.channel.send('**This Person Already Tempmuted !**');
+                if(!muteRole) return message.guild.createRole({ name: "Muted", permissions: [] });
+                if(!time) return message.channel.send("**Type The Duration**");
+                if(!time.match(/[1-60][s,m,h,d,w]/g)) return message.channel.send('**The Bot Not Support This Time**');
+                if(!muteReason) return message.channel.send('Please Type The Reason')
+                message.guild.member(mutePerson).addRole(muteRole);
+                message.channel.send(`**:white_check_mark: ${mutePerson} has been muted ! :zipper_mouth: **`)
+                message.delete()
+                let muteEmbed = new Discord.RichEmbed()
+                .setTitle(`New Temp Muted User`)
+                .setThumbnail(message.guild.iconURL)
+                .addField('- Muted By:',message.author,true)
+                .addField('- Muted User:', `${mutePerson}`)
+                .addField('- Reason:',muteReason,true)
+                .addField('- Duration:',`${mmss(mmss(time), {long: true})}`)
+                .setFooter(message.author.username,message.author.avatarURL);
+                let incidentchannel = message.guild.channels.find(`name`, `${log[message.guild.id].channel}`);
+                if(!incidentchannel) return message.channel.send("Can't find log channel. To Set The Log Channel Type >setLog and answer the questions");
+                incidentchannel.sendEmbed(muteEmbed)
+                mutePerson.send(`**You Are has been temp muted in ${message.guild.name} reason: ${muteReason}**`)
+                .then(() => { setTimeout(() => {
+                   message.guild.member(mutePerson).removeRole(muteRole);
+               }, mmss(time));
+            });
+            }
+        });
+
+let antijoin = JSON.parse(fs.readFileSync('./antijoin.json' , 'utf8'));
+ 
+ 
+client.on('message', message => {
+    if(message.content.startsWith(prefix + "antijoin on")) {
+        if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+        if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+antijoin[message.guild.id] = {
+onoff: 'On',
+}
+message.channel.send(`**✅ The AntiJoin Is __𝐎𝐍__ !**`)
+          fs.writeFile("./antijoin.json", JSON.stringify(antijoin), (err) => {
+            if (err) console.error(err)
+            .catch(err => {
+              console.error(err);
+          });
+            });
+          }
+ 
+        })
+ 
+ 
+ 
+client.on('message', message => {
+    if(message.content.startsWith(prefix + "antijoin off")) {
+        if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+        if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+antijoin[message.guild.id] = {
+onoff: 'Off',
+}
+message.channel.send(`**⛔ The AntiJoin Is __𝐎𝐅𝐅__ !**`)
+          fs.writeFile("./antijoin.json", JSON.stringify(antijoin), (err) => {
+            if (err) console.error(err)
+            .catch(err => {
+              console.error(err);
+          });
+            });
+          }
+ 
+        })
+ 
+        client.on('message', message => {
+          if (!message.channel.guild) return;
+ 
+   let time = message.content.split(" ").slice(1);
+   if(message.content.startsWith(prefix + "setJoin")) {
+       if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+       if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+if(!time) return message.channel.send('Please Type The Account Created Time [Days]')
+let embed = new Discord.RichEmbed()
+.setTitle('**Done The AntiJoin Code Has Been Setup**')
+.addField('Account Create Time:', `${room}`)
+.addField('Requested By:', `${message.author}`)
+.setThumbnail(message.author.avatarURL)
+.setFooter(`${client.user.username}`)
+message.channel.sendEmbed(embed)
+antijoin[message.guild.id] = {
+created: time,
+onoff: 'On',
+}
+fs.writeFile("./antijoin.json", JSON.stringify(antijoin), (err) => {
+if (err) console.error(err)
+})
+   }})
+ 
+client.on("guildMemberAdd", async member => {
+  if(!antijoin[member.guild.id]) antijoin[member.guild.id] = {
+    onoff: 'Off'
+  }
+  if(antijoin[member.guild.id].onoff === 'Off') return;
+    let accounttime = `${antijoin[member.guild.id].created}`
+    let moment2 = require('moment-duration-format'),
+        moment = require("moment"),
+        date = moment.duration(new Date() - member.user.createdAt).format("d");
+ 
+    if(date < accounttime) {
+      member.ban(`Member account age is lower than ${antijoin[member.guild.id].created} days.`)
+    }
+  });
+
+client.on('message', function(message) {
+    if (message.channel.type === "dm") {
+        if (message.author.id === client.user.id) return;
+        var RaYaN= new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setTimestamp()
+        .setTitle('``New Message in private``')
+        .setThumbnail(`${message.author.avatarURL}`)
+        .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
+        .setFooter(`From **${message.author.tag} (${message.author.id})**`)
+    client.channels.get("523196116620017684").send({embed:RaYaN});
+    }
+});
+
  
   
 
