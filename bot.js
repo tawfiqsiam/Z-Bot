@@ -772,7 +772,7 @@ client.on('message', message => {
 var embed = new Discord.RichEmbed()
 .setColor('RANDOM')
  .setThumbnail(message.author.avatarURL) 
-.addField('SkyBot.' ,
+.addField('Z Bot' ,
 `${Za7f[Math.floor(Math.random() * Za7f.length)]}`)
 message.channel.sendEmbed(embed);
 console.log('[38ab] Send By: ' + message.author.username)
@@ -2263,451 +2263,415 @@ if (err) console.error(err)
       })
     }})
 
-let points = {}
-   
+const adkar = [
+	'**اذكار  | **اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ.',
+	'**اذكار  |  **اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى. ',
+	'**اذكار  ‏|  **اللَّهُمَّ اغْفِرْ لِي ذَنْبِي كُلَّهُ، دِقَّهُ، وَجِلَّهُ، وَأَوَّلَهُ، وَآخِرَهُ، وَعَلَانِيَتَهُ، وَسِرَّهُ. ',
+	'**‏اذكار  |  **أستغفر الله .',
+	'**‏اذكار  | **الْلَّهُ أَكْبَرُ',
+	'**‏اذكار  |  **لَا إِلَهَ إِلَّا اللَّهُ',
+	'**اذكار  |  **اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ , وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ , اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ.',
+	'**اذكار  |  **سُبْحَانَ الْلَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا الْلَّهُ، وَالْلَّهُ أَكْبَرُ',
+	'**اذكار  | **لَا إلَه إلّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلُّ شَيْءِ قَدِيرِ.',
+	'**اذكار  | **أسْتَغْفِرُ اللهَ وَأتُوبُ إلَيْهِ',
+	'**‏اذكا��  | **سُبْحـانَ اللهِ وَبِحَمْـدِهِ. ',
+	'‏**اذكار**|  لَا إلَه إلّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءِ قَدِيرِ.',
+	'**اذكار  ‏|   **اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا.',
+	'**اذكار  | ‏ **يَا رَبِّ , لَكَ الْحَمْدُ كَمَا يَنْبَغِي لِجَلَالِ وَجْهِكَ , وَلِعَظِيمِ سُلْطَانِكَ.',
+	'اذكار    |  **أسْتَغْفِرُ اللهَ العَظِيمَ الَّذِي لاَ إلَهَ إلاَّ هُوَ، الحَيُّ القَيُّومُ، وَأتُوبُ إلَيهِ.**',
+	'**‏اذكار  |  **اللَّهُمَّ إِنَّا نَعُوذُ بِكَ مِنْ أَنْ نُشْرِكَ بِكَ شَيْئًا نَعْلَمُهُ ، وَنَسْتَغْفِرُكَ لِمَا لَا نَعْلَمُهُ.',
+	'**‏اذكار  |  **اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ على نَبِيِّنَا مُحمَّد. ',
+	'**‏اذكار  |  **أَعـوذُ بِكَلِمـاتِ اللّهِ التّـامّـاتِ مِنْ شَـرِّ ما خَلَـق.',
+	'**اذكار  |  **يَا حَيُّ يَا قيُّومُ بِرَحْمَتِكَ أسْتَغِيثُ أصْلِحْ لِي شَأنِي كُلَّهُ وَلاَ تَكِلْنِي إلَى نَفْسِي طَـرْفَةَ عَيْنٍ. ',
+	'**اذكار  |  **اللّهُـمَّ إِنّـي أَعـوذُ بِكَ مِنَ الْكُـفر ، وَالفَـقْر ، وَأَعـوذُ بِكَ مِنْ عَذابِ القَـبْر ، لا إلهَ إلاّ أَنْـتَ.',
+	'**‏اذكار  |  **اللّهُـمَّ عافِـني في بَدَنـي ، اللّهُـمَّ عافِـني في سَمْـعي ، اللّهُـمَّ عافِـني في بَصَـري ، لا إلهَ إلاّ أَنْـتَ.',
+	'**‏اذكار  |  **سُبْحـانَ اللهِ وَبِحَمْـدِهِ عَدَدَ خَلْـقِه ، وَرِضـا نَفْسِـه ، وَزِنَـةَ عَـرْشِـه ، وَمِـدادَ كَلِمـاتِـه. ',
+	'**‏اذكار  |  **اللّهُـمَّ بِكَ أَصْـبَحْنا وَبِكَ أَمْسَـينا ، وَبِكَ نَحْـيا وَبِكَ نَمُـوتُ وَإِلَـيْكَ النُّـشُور.',
+	'**‏اذكار  |  **بِسـمِ اللهِ الذي لا يَضُـرُّ مَعَ اسمِـهِ شَيءٌ في الأرْضِ وَلا في السّمـاءِ وَهـوَ السّمـيعُ العَلـيم. ',
+	'**‏اذكار  |  **حَسْبِـيَ اللّهُ لا إلهَ إلاّ هُوَ عَلَـيهِ تَوَكَّـلتُ وَهُوَ رَبُّ العَرْشِ العَظـيم.',
+	'**اذكار  |  **اللّهُـمَّ ما أَصْبَـَحَ بي مِـنْ نِعْـمَةٍ أَو بِأَحَـدٍ مِـنْ خَلْـقِك ، فَمِـنْكَ وَحْـدَكَ لا شريكَ لَـك ، فَلَـكَ الْحَمْـدُ وَلَـكَ الشُّكْـر.',
+	'**‏اذكار  |  **اللّهُـمَّ إِنِّـي أَصْبَـحْتُ أُشْـهِدُك ، وَأُشْـهِدُ حَمَلَـةَ عَـرْشِـك ، وَمَلَائِكَتَكَ ، وَجَمـيعَ خَلْـقِك ، أَنَّـكَ أَنْـتَ اللهُ لا إلهَ إلاّ أَنْـتَ وَحْـدَكَ لا شَريكَ لَـك ، وَأَنَّ ُ مُحَمّـداً عَبْـدُكَ وَرَسـولُـك',
+	'**‏اذكار  |  **رَضيـتُ بِاللهِ رَبَّـاً وَبِالإسْلامِ ديـناً وَبِمُحَـمَّدٍ صلى الله عليه وسلم نَبِيّـاً',
+	'**‏اذكار  |  **اللهم إني أعوذ بك من العجز، والكسل، والجبن، والبخل، والهرم، وعذاب القبر، اللهم آت نفسي تقواها، وزكها أنت خير من زكاها. أنت وليها ومولاها. اللهم إني أعوذ بك من علم لا ينفع، ومن قلب لا يخشع، ومن نفس لا تشبع، ومن دعوة لا يستجاب لها',
+	'**‏اذكار  |  **اللهم إني أعوذ بك من شر ما عملت، ومن شر ما لم أعمل',
+	'**‏اذكار  |  **اللهم مصرف القلوب صرف قلوبنا على طاعتك',
+  ]
   client.on('message', message => {
-    if(message.author.bot) return;
-            if (!points[message.author.id]) points[message.author.id] = {
-             points: 0,id: message.author.id
-           };
-              if (message.content.startsWith(prefix + 'فكك')) {
-                if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
+  if (message.author.bot) return;
+  if (message.content.startsWith('$اذكار')) {
+	if(!message.channel.guild) return;
+  var client= new Discord.RichEmbed()
+  .setTitle("**اذكار**")
+  .setThumbnail(message.author.avatarURL)
+  .setColor('RANDOM')
+  .setDescription(`${adkar[Math.floor(Math.random() * adkar.length)]}`)
+				 .setTimestamp()
+  message.channel.sendEmbed(client);
+  message.react("??")
+  }
+  });
 
-              const type = require('./fkk.json');
-              const item = type[Math.floor(Math.random() * type.length)];
-           let author = message.author;
-              const filter = response => {
-                
-                  return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-              };
-              message.channel.send('**لديك 15 ثانيه لتفكيك الكلمه**').then(msg => {
-
- const w = ['./img/w1.png'];//الخافيه
-            let Image = Canvas.Image,
-            canvas = new Canvas(400, 150),
-            ctx = canvas.getContext('2d');
-    
-            fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-            if (err) return console.log(err);
-            let BG = Canvas.Image;
-            let ground = new Image;
-            ground.src = Background;
-            ctx.drawImage(ground, 0, 0, 400, 150);
- 
-});
- let url = message.author.displayAvatarURL.endsWith(".webp") ? message.author.displayAvatarURL.slice(5, -20) + ".png" : message.author.displayAvatarURL;
-               jimp.read(url, (err, ava) => {
-                    if (err) return console.log(err);
-                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                        if (err) return console.log(err);
-                       
-                      
-                        ctx.font = '15px Arial';
-                              ctx.fontSize = '10px';
-                              ctx.fillStyle = "#FFFFFF";
-                              ctx.textAlign = "center";
-              ctx.fillText(`${item.type} ` , 250, 100);
-              
-               let Avatar = Canvas.Image;
-                              let ava = new Avatar;
-                              ava.src = buf;
-                              ctx.beginPath();
-                              ctx.arc(70, 80, 63, 0, Math.PI*2);
-                                 ctx.closePath();
-                                 ctx.clip();
-                                 ctx.drawImage(ava, 8, 18, 128, 126);   
-message.channel.sendFile(canvas.toBuffer());
- })
-             
-                      message.channel.awaitMessages(filter, { maxMatches: 1, time: 30000, errors: ['time'] })//وقت الاجابة
-                      .then((collected) => {
-                           var embed = new Discord.RichEmbed()
-                            .setDescription(`${collected.first().author} ✅ احسنت لقد تمكنت من تفكيك الكلمه بسرعه`)
-                 message.channel.send(embed);
-                  console.log(`[Typing] ${collected.first().author} typed the word.`);
-                          let won = collected.first().author;
-                          points[won.id].points++;
-                        })
-                        .catch(collected => {
-                       var embed1 = new Discord.RichEmbed()
-                            .setDescription(`:x: لم يتمكن احد من تفكيك الكلمه في الوقت المناسب`)
-                 message.channel.send(embed1);
-                    console.log('[Typing] Error: No one type the word.');
-           
-                  })
-                })
-             
-  })
-}
-
-});
-
-
-
-
-client.on('message', message => {
-	 if(message.author.bot) return;
-  if (!points[message.author.id]) points[message.author.id] = {
-             points: 0,id: message.author.id
-           };if (message.content.startsWith(prefix + 'لغز')) {
-	if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
-
-const type = require('./quiz.json');
-const item = type[Math.floor(Math.random() * type.length)];
-const filter = response => {
-    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-};
-message.channel.send('**لديك 15 ثانيه لحل هذه الغز**').then(msg => {
- const w = ['./img/w1.png'];//الخافيه
-            let Image = Canvas.Image,
-            canvas = new Canvas(400, 150),
-            ctx = canvas.getContext('2d');
-    
-            fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-            if (err) return console.log(err);
-            let BG = Canvas.Image;
-            let ground = new Image;
-            ground.src = Background;
-            ctx.drawImage(ground, 0, 0, 400, 150);
- 
-});
- let url = message.author.displayAvatarURL.endsWith(".webp") ? message.author.displayAvatarURL.slice(5, -20) + ".png" : message.author.displayAvatarURL;
-               jimp.read(url, (err, ava) => {
-                    if (err) return console.log(err);
-                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                        if (err) return console.log(err);
-                       
-                      
-                        ctx.font = '15px Arial';
-                              ctx.fontSize = '10px';
-                              ctx.fillStyle = "#FFFFFF";
-                              ctx.textAlign = "center";
-              ctx.fillText(`${item.type} ` , 250, 100);
-              
-               let Avatar = Canvas.Image;
-                              let ava = new Avatar;
-                              ava.src = buf;
-                              ctx.beginPath();
-                              ctx.arc(70, 80, 63, 0, Math.PI*2);
-                                 ctx.closePath();
-                                 ctx.clip();
-                                 ctx.drawImage(ava, 8, 18, 128, 126);   
-message.channel.sendFile(canvas.toBuffer());
- })
-             
-                      message.channel.awaitMessages(filter, { maxMatches: 1, time: 30000, errors: ['time'] })//وقت الاجابة
-                      .then((collected) => {
-                           var embed = new Discord.RichEmbed()
-                            .setDescription(`${collected.first().author} ✅ احسنت لقت تمكنت من حل الغز`)
-                 message.channel.send(embed);
-                  console.log(`[Typing] ${collected.first().author} typed the word.`);
-                          let won = collected.first().author;
-                          points[won.id].points++;
-                        })
-                        .catch(collected => {
-                       var embed1 = new Discord.RichEmbed()
-                            .setDescription(`:x:لم يتمكن احد من حل الغز `)
-                 message.channel.send(embed1);
-                    console.log('[Typing] Error: No one type the word.');
-           
-                  })
-                })
-             
-  })
-}
-
-});
-
-
-client.on('message', message => {
-	 if(message.author.bot) return;
-     if (!points[message.author.id]) points[message.author.id] = {
-             points: 0,id: message.author.id
-           };
-    if (message.content.startsWith(prefix+ 'ركب')) {
-      if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
-    
-    const type = require('./rkb.json');
-    const item = type[Math.floor(Math.random() * type.length)];
-    const filter = response => {
-        return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-    };
-    message.channel.send('**لديك 15 ثانيه لتركيب الكلمه**').then(msg => {
- const w = ['./img/w1.png'];//الخافيه
-            let Image = Canvas.Image,
-            canvas = new Canvas(400, 150),
-            ctx = canvas.getContext('2d');
-    
-            fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-            if (err) return console.log(err);
-            let BG = Canvas.Image;
-            let ground = new Image;
-            ground.src = Background;
-            ctx.drawImage(ground, 0, 0, 400, 150);
- 
-});
- let url = message.author.displayAvatarURL.endsWith(".webp") ? message.author.displayAvatarURL.slice(5, -20) + ".png" : message.author.displayAvatarURL;
-               jimp.read(url, (err, ava) => {
-                    if (err) return console.log(err);
-                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                        if (err) return console.log(err);
-                       
-                      
-                        ctx.font = '15px Arial';
-                              ctx.fontSize = '10px';
-                              ctx.fillStyle = "#FFFFFF";
-                              ctx.textAlign = "center";
-              ctx.fillText(`${item.type} ` , 250, 100);
-              
-               let Avatar = Canvas.Image;
-                              let ava = new Avatar;
-                              ava.src = buf;
-                              ctx.beginPath();
-                              ctx.arc(70, 80, 63, 0, Math.PI*2);
-                                 ctx.closePath();
-                                 ctx.clip();
-                                 ctx.drawImage(ava, 8, 18, 128, 126);   
-message.channel.sendFile(canvas.toBuffer());
- })
-             
-                      message.channel.awaitMessages(filter, { maxMatches: 1, time: 30000, errors: ['time'] })//وقت الاجابة
-                      .then((collected) => {
-                           var embed = new Discord.RichEmbed()
-                            .setDescription(`${collected.first().author} ✅ احسنت لقد ركبت الكلمة`)
-                 message.channel.send(embed);
-                  console.log(`[Typing] ${collected.first().author} typed the word.`);
-                          let won = collected.first().author;
-                          points[won.id].points++;
-                        })
-                        .catch(collected => {
-                       var embed1 = new Discord.RichEmbed()
-                            .setDescription(`:x: لم يتمكن احد من تركيب الكلمة`)
-                 message.channel.send(embed1);
-                    console.log('[Typing] Error: No one type the word.');
-           
-                  })
-                })
-             
-  })
-}
-
-});
-
-
-
-
-
-
-
-client.on('message', message => {
-	 if(message.author.bot) return;
-       if (!points[message.author.id]) points[message.author.id] = {
-             points: 0,id: message.author.id
-           };
-      if (message.content.startsWith(prefix + 'كتابه')) {
-        if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
-      
-      const type = require('./type.json');
-      const item = type[Math.floor(Math.random() * type.length)];
-      const filter = response => {
-          return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-      };
-      message.channel.send('** لديك 15 ثانيه لكتابه هذه الكلمه بسرعة**').then(msg => {
-      
- const w = ['./img/w1.png'];//الخافيه
-            let Image = Canvas.Image,
-            canvas = new Canvas(400, 150),
-            ctx = canvas.getContext('2d');
-    
-            fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-            if (err) return console.log(err);
-            let BG = Canvas.Image;
-            let ground = new Image;
-            ground.src = Background;
-            ctx.drawImage(ground, 0, 0, 400, 150);
- 
-});
- let url = message.author.displayAvatarURL.endsWith(".webp") ? message.author.displayAvatarURL.slice(5, -20) + ".png" : message.author.displayAvatarURL;
-               jimp.read(url, (err, ava) => {
-                    if (err) return console.log(err);
-                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                        if (err) return console.log(err);
-                       
-                      
-                        ctx.font = '15px Arial';
-                              ctx.fontSize = '10px';
-                              ctx.fillStyle = "#FFFFFF";
-                              ctx.textAlign = "center";
-              ctx.fillText(`${item.type} ` , 250, 100);
-              
-               let Avatar = Canvas.Image;
-                              let ava = new Avatar;
-                              ava.src = buf;
-                              ctx.beginPath();
-                              ctx.arc(70, 80, 63, 0, Math.PI*2);
-                                 ctx.closePath();
-                                 ctx.clip();
-                                 ctx.drawImage(ava, 8, 18, 128, 126);   
-message.channel.sendFile(canvas.toBuffer());
- })
-             
-                      message.channel.awaitMessages(filter, { maxMatches: 1, time: 30000, errors: ['time'] })//وقت الاجابة
-                      .then((collected) => {
-                           var embed = new Discord.RichEmbed()
-                            .setDescription(`${collected.first().author} ✅ **احسنت لقد تمكنت من كتابه هذه الكلمه بسرعه**`)
-                 message.channel.send(embed);
-                  console.log(`[Typing] ${collected.first().author} typed the word.`);
-                          let won = collected.first().author;
-                          points[won.id].points++;
-                        })
-                        .catch(collected => {
-                       var embed1 = new Discord.RichEmbed()
-                            .setDescription(`:x: **لم يتمكن احد من كتابه هذه الكلمه في الوقت المناسب**`)
-                 message.channel.send(embed1);
-                    console.log('[Typing] Error: No one type the word.');
-           
-                  })
-                })
-             
-  })
-}
-
-});
-
-
+const secreT = [
+  "**الحياة بكل ما فيها تقف دائمًا على حد الوسطية بين اتزان المعنى وضده من حب وكره وحق وباطل وعدل وظلم**.",
+  "**كى تعيش عليك ان تتقن فن التجاهل باحتراف**.",
+  "**لا تحزن على من اشعرك بان طيبتك غباء امام وقاحته**.",
+  "**هناك من يحلم بالنجاح وهناك من يستيقظ باكرا لتحقيقه**.",
+  "**ان تعالج ألمك بنفسك تلك هى القوة**.", 
+  "**الجميع يسمع ما تقول والاصدقاء ينصتون لما تقول وافضل الاصدقاء ينصتون لما اخفاه سكوتك**.", 
+  "**انتهى زمن الفروسية ، لم تنقرض الخيول بل انقرض الفرسان**.", 
+  "**ان تكون اخرسا عاقلا خير من ان تكون نطوقا جهولا**.", 
+  "**المناقشات العقيمة لا تنجب افكارا**.", 
+  "**نحن نكتب ما لا نستطيع ان نقول وما نريد ان يكون**.", 
+  "**نحن نكتب ما لا نستطيع ان نقول وما نريد ان يكون**.", 
+]
 
 
  client.on('message', message => {
-	  if(message.author.bot) return;
-      if (!points[message.author.id]) points[message.author.id] = {
-             points: 0,id: message.author.id
-           };
-    if (message.content.startsWith(prefix + 'رياضيات')) {
-      if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
+   if (message.content.startsWith("$خواطر")) {
+                if(!message.channel.guild) return message.reply('** This command only for servers**');
+  var embed = new Discord.RichEmbed()
+  .setColor('RANDOM')
+
+   .setThumbnail(message.author.avatarURL) 
+ .addField('لعبه خواطر' ,
+  `${secreT[Math.floor(Math.random() * secreT.length)]}`)
+  message.channel.sendEmbed(embed);
+  console.log('[id] Send By: ' + message.author.username)
+    }
+});
+
+let points = JSON.parse(fs.readFileSync('points.json', 'utf8'));
+client.on('message', message => {
+    if (!points[message.author.id]) points[message.author.id] = {points : 0}
+    if (message.content == 'نقاطي'){
+        var embed = new Discord.RichEmbed()
+        .setAuthor(message.author.username,message.author.avatarURL)
+        .addField(`نقاطك : ${points[message.author.id].points}`,'By : زعلان',   true)
+        .setColor('RANDOM')
+        .setFooter('SFARI server', client.user.avatarURL);
+        message.channel.sendEmbed(embed)
+    };
+    if (message.content == "فكك") {    
+        var x = ['ضفدع', 'طيارة', 'رعودي', 'تفكيك', 'تجربة', 'مدرسة', 'معلم' , 'نقاط' , 'اكسيفو' , 'مكوه' , 'هكونا مطاطا' , 'اكسيفو ذا بيست'];
+        var x2 = ['ض ف د ع', 'ط ي ا ر ة', 'ر ع و د ي', 'ت ف ك ي ك', 'ت ج ر ب ة', 'م د ر س ة', 'م ع ل م', 'ن ق ا ط', 'ا ك س ي ف و', 'م ك و ه', 'ه ك و ن ا م ط ا ط ا', 'ا ك س ي ف و ذ ا ب ي س ت'];
+        var x3 = Math.floor(Math.random()*x.length)
+        message.channel.send(`فكك الكلمة الآتية :${x[x3]}, لديك 20 ثانية`).then(msg1=> {
+            var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
+                maxMatches : 1,
+                time : 20000,
+                errors : ['time']
+            })
+        r.catch(() => {
+            return message.channel.send('❌ لقد انتهى الوقت ولم يقم أحد بالأجابة بشكل صحيح')
+                    message.channel.sendEmbed(embed)
+        })
+        r.then(s=> {
+
+            points[message.author.id].points +=1
+            message.channel.send(`✅ لقد قمت بكتابة الجواب الصحيح بالوقت المناسب
+ ─═════**{نقاطك:${points[message.author.id].points}}**═════─`);
+               message.channel.sendEmbed(embed)
+        })
+        })
+    }
+    fs.writeFile('points.json', JSON.stringify(points), (err) => {
+        if (err) console.error(err);
+    })
+	    if (message.content == "ركب") {    
+        var x = ['ض ف د ع', 'ط ي ا ر ة', 'ر ع و د ي', 'ت ف ك ي ك', 'ت ج ر ب ة', 'م د ر س ة', 'م ع ل م', 'ن ق ا ط', 'ا ك س ي ف و', 'م ك و ه', 'ه ك و ن ا م ط ا ط ا', 'ا ك س ي ف و ذ ا ب ي س ت'];
+		var x2 = ['ضفدع', 'طيارة', 'رعودي', 'تفكيك', 'تجربة', 'مدرسة', 'معلم' , 'نقاط' , 'اكسيفو' , 'مكوه' , 'هكونا مطاطا' , 'اكسيفو ذا بيست'];
+        var x3 = Math.floor(Math.random()*x.length)
+        message.channel.send(`ركب الكلمة  الآتية :${x[x3]}, لديك 20 ثانية`).then(msg1=> {
+            var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
+                maxMatches : 1,
+                time : 20000,
+                errors : ['time']
+            })
+        r.catch(() => {
+            return message.channel.send('❌ لقد انتهى الوقت ولم يقم أحد بالأجابة بشكل صحيح')
+                    message.channel.sendEmbed(embed)
+        })
+        r.then(s=> {
+
+            points[message.author.id].points +=1
+            message.channel.send(`✅ لقد قمت بكتابة الجواب الصحيح بالوقت المناسب
+ ─═════**{نقاطك:${points[message.author.id].points}}**═════─`);
+               message.channel.sendEmbed(embed)
+        })
+        })
+    }
+    fs.writeFile('points.json', JSON.stringify(points), (err) => {
+        if (err) console.error(err);
+    })
+	    if (message.content == "رياضيات") {    
+        var x = ['50×50', '1000000×1', '89×10', '90×5', '30×3', '10×10', '1000×1000', '44,5+44,5'];
+		var x2 = ['2500', '1000000', '890', '450', '90', '100', '1000000' , '89'];
+        var x3 = Math.floor(Math.random()*x.length)
+        message.channel.send(`ركب الكلمة  الآتية :${x[x3]}, لديك 20 ثانية`).then(msg1=> {
+            var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
+                maxMatches : 1,
+                time : 20000,
+                errors : ['time']
+            })
+        r.catch(() => {
+            return message.channel.send('❌ لقد انتهى الوقت ولم يقم أحد بالأجابة بشكل صحيح')
+                    message.channel.sendEmbed(embed)
+        })
+        r.then(s=> {
+
+            points[message.author.id].points +=1
+            message.channel.send(`✅ لقد قمت بكتابة الجواب الصحيح بالوقت المناسب
+ ─═════**{نقاطك:${points[message.author.id].points}}**═════─`);
+               message.channel.sendEmbed(embed)
+        })
+        })
+    }
+    fs.writeFile('points.json', JSON.stringify(points), (err) => {
+        if (err) console.error(err);
+    })
+	
+  if (message.content == "عواصم") {
+        var x = ['اليمن', 'مصر', 'الجزائر', 'السعودية', 'الصومال', 'العراق' , 'الامارات' , 'سوريا' , 'المغرب'];
+        var x2 = ['صنعاء', 'القاهرة', 'الجزائر', 'الرياض', 'الخرطوم', 'بغداد', 'ابو ظبي','دمشق ','الر باط'];
+        var x3 = Math.floor(Math.random()*x.length)
+        message.channel.send(`ماهي عاصمة :${x[x3]}, لديك 15 ثانية`).then(msg1=> {
+            var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
+                maxMatches : 1, 
+                time : 15000, 
+                errors : ['time'] 
+            })
+        r.catch(() => {
+            return message.channel.send('❌ لقد انتهى الوقت ولم يقم أحد بالأجابة بشكل صحيح') 
+               message.channel.sendEmbed(embed)
+        })
+        r.then(s=> {
+
+            points[message.author.id].points +=1
+            message.channel.send(`✅ لقد قمت بكتابة الجواب الصحيح بالوقت المناسب
+ ─═════**{نقاطك:${points[message.author.id].points}}**═════─`);
+               message.channel.sendEmbed(embed)
+        })
+        })
+    }
+    fs.writeFile('points.json', JSON.stringify(points), (err) => {
+        if (err) console.error(err);
+    })
+    if (message.content == "لغز") {
+        var x = ['كلي ثقوب ومع ذلك أحفظ الماء فمن أكون ؟', 'ما هو الشيء الذي يمشي و يقف وليس له أرجـل ؟', 'ما هو الشئ الذي يرفع اثقال ولا يقدر يرفع مسمار ؟', 'يسمع بلا أذن ويتكلم بلا لسان فما هو ؟', 'ماهو الشيء الذي يكتب و لا يقرأ ؟', 'ماهو الشيء الذي يكون اخضر في الارض واسود في السوق واحمــر في البيت ؟', 'عائلة مؤلفة من 6 بنات وأخ لكل منهن، فكم عدد أفراد العائلة ؟', 'يتحرك دائماً حواليك لكنك لاتراه فما هو ؟' ,'ما هو البليون ؟'];
+        var x2 = ['الاسفنج', 'الساعة', 'البحر', 'التلفون', 'العمر', 'الشاي', 'سبعة اشخاص' ,'الهواء' ,'الف مليون'];
+        var x3 = Math.floor(Math.random()*x.length)
+        message.channel.send(`حل اللغز الأتي :${x[x3]}, لديك 20 ثانية`).then(msg1=> {
+            var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
+                maxMatches : 1,
+                time : 20000,
+                errors : ['time']
+            })
+        r.catch(() => {
+            return message.channel.send('❌ لقد انتهى الوقت ولم يقم أحد بالأجابة بشكل صحيح') 
+               message.channel.sendEmbed(embed)
+        })
+        r.then(s=> {
+
+            points[message.author.id].points +=1
+            message.channel.send(`✅ لقد قمت بكتابة الجواب الصحيح بالوقت المناسب
+ ─═════**{نقاطك:${points[message.author.id].points}}**═════─`);
+               message.channel.sendEmbed(embed)
+        })
+        })
+    }
+    fs.writeFile('points.json', JSON.stringify(points), (err) => {
+        if (err) console.error(err);
+    })
+  if (message.content == "تحدي") {    
+        var x = ['ف ض ع د', 'ص ش خ', 'ة د ا ر ج', 'ا ر ي ة س', 'ي ت ب', 'ئ ا ع ل ة', ' ا ش ي', 'ن ح و ي ا', 'س د و ي ك ر د', 'ر ط ي ا ة' , 'ن ح ز ل و', 'ك ا ف ي س و'];
+        var x2 = ['ضفدع', 'شخص', 'دراجة', 'سيارة', 'بيت', 'عائلة', 'شاي', 'حيوان', 'ديسكورد', 'طيارة', 'حلزون', 'اكسيفو'];
+        var x3 = Math.floor(Math.random()*x.length)
+        message.channel.send(`عدل الكلمة  الآتية :${x[x3]}, لديك 25 ثانية`).then(msg1=> {
+            var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
+                maxMatches : 1,
+                time : 25000,
+                errors : ['time']
+            })
+        r.catch(() => {
+            return message.channel.send('❌ لقد انتهى الوقت ولم يقم أحد بالأجابة بشكل صحيح')
+                    message.channel.sendEmbed(embed)
+        })
+        r.then(s=> {
+
+            points[message.author.id].points +=1
+            message.channel.send(`✅ لقد قمت بكتابة الجواب الصحيح بالوقت المناسب
+ ─═════**{نقاطك:${points[message.author.id].points}}**═════─`);
+               message.channel.sendEmbed(embed)
+        })
+        })
+    }
+    fs.writeFile('points.json', JSON.stringify(points), (err) => {
+        if (err) console.error(err);
+    });
+});
+    fs.writeFile('points.json', JSON.stringify(points), (err) => {
+        if (err) console.error(err);
+client.on('message', message => {
+    if (!points[message.author.id]) points[message.author.id] = { 
+        points: 0,
+      };
+    if (message.content.startsWith(prefix + 'ايموجي')) { 
+        if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
     
-    const type = require('./math.json');
-    const item = type[Math.floor(Math.random() * type.length)];
-    const filter = response => {
+    const type = require('./emojis.json'); 
+    const item = type[Math.floor(Math.random() * type.length)]; 
+    const filter = response => { 
         return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
     };
-    message.channel.send('**لديك 15 ثانيه لحل المسئله**').then(msg => {
- const w = ['./img/w1.png'];//الخافيه
-            let Image = Canvas.Image,
-            canvas = new Canvas(400, 150),
-            ctx = canvas.getContext('2d');
-    
-            fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-            if (err) return console.log(err);
-            let BG = Canvas.Image;
-            let ground = new Image;
-            ground.src = Background;
-            ctx.drawImage(ground, 0, 0, 400, 150);
+   message.channel.send({embed: new Discord.RichEmbed().setTitle('لديك ثانيه للاجابه بالجواب الصحيح').setThumbnail(`${item.type}`)}).then(function(m) {
+             setTimeout(function() {
+m.edit({embed: new Discord.RichEmbed().setTitle('لديك 15 ثانيه للاجابه بالجواب الصحيح').setThumbnail('https://images-ext-2.discordapp.net/external/lLOYcLfSQaNo_5Ex0I-gBD5lIW-FfRXO-W_-ZxSpYLA/https/i.imgur.com/iReHvIZ.png?width=100&height=100')})
+             }, 2000)
+            message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+            .then((collected) => {
+            message.channel.send(`${collected.first().author} ✅ **لقد قمت بكتابة الايموجي بالوقت المناسب**`);
+            console.log(`[Game] ${collected.first().author} Answered with the correct answer`);
+                let won = collected.first().author;
+                points[won.id].points++;
+              })
+              .catch(collected => { 
+                message.channel.send(`:x: **لم يقم أحد بكتابة الايموجي بالوقت المناسب**`);
+                console.log(`[Game] No one answered the correct answer`);
+                    })
+            })
+    }
+    });
+	    
+	    });
+
+client.on('message', message => {
+var prefix = "$";
+var cats = ["http://palestine-kitchen.ps/wp-content/uploads/2017/12/%D9%86%D9%83%D8%AA-%D8%AF%D8%A8%D8%A7%D9%86%D8%A9.png","http://www.i7lm.com/wp-content/uploads/2017/04/136769797816.jpg","https://4.bp.blogspot.com/-p62zmDIDXmI/WKzqNt9smaI/AAAAAAAAC4Q/sW_bSIB8OaQhwOYFeplc3uzz8PBN7l3YACEw/s1600/13602501135.jpg","https://www.universemagic.com/images/2016/03/7938-2-or-1457539273.jpg","https://1.bp.blogspot.com/-yFk-FzHSyE8/WR9fmPcsCUI/AAAAAAAAE6c/AmvjLadOiLY9GiCqMLHgA121bY2RS_dCwCLcB/s1600/%25D9%2586%25D9%2583%25D8%25AA%2B%25D9%2585%25D8%25B6%25D8%25AD%25D9%2583%25D8%25A9%2B1.jpg","https://l7zaat.com/wp-content/uploads/2018/02/423.jpg","https://www.petfinder.com/wp-content/uploads/2012/11/101438745-cat-conjunctivitis-causes.jpg","https://i.fatafeat.com/storage/attachments/15/image3_698123_large.jpg","http://www.shuuf.com/shof/uploads/2018/02/08/jpg/shof_97d686082bdb0a2.jpg"];
+        var args = message.content.split(" ").slice(1);
+    if(message.content.startsWith(prefix + 'نكت')) {
+         var cat = new Discord.RichEmbed()
+.setImage(cats[Math.floor(Math.random() * cats.length)])
+message.channel.sendEmbed(cat);
+    }
+});
+
+const Sra7a = [
+    'صراحه  |  صوتك حلوة؟',
+    'صراحه  |  التقيت الناس مع وجوهين؟',
+    'صراحه  |  شيء وكنت تحقق اللسان؟',
+    'صراحه  |  أنا شخص ضعيف عندما؟',
+    'صراحه  |  هل ترغب في إظهار حبك ومرفق لشخص أو رؤية هذا الضعف؟',
+    'صراحه  |  يدل على أن الكذب مرات تكون ضرورية شي؟',
+    'صراحه  |  أشعر بالوحدة على الرغم من أنني تحيط بك كثيرا؟',
+    'صراحه  |  كيفية الكشف عن من يكمن عليك؟',
+    'صراحه  |  إذا حاول شخص ما أن يكرهه أن يقترب منك ويهتم بك تعطيه فرصة؟',
+    'صراحه  |  أشجع شيء حلو في حياتك؟',
+    'صراحه  |  طريقة جيدة يقنع حتى لو كانت الفكرة خاطئة" توافق؟',
+    'صراحه  |  كيف تتصرف مع من يسيئون فهمك ويأخذ على ذهنه ثم ينتظر أن يرفض؟',
+    'صراحه  |  التغيير العادي عندما يكون الشخص الذي يحبه؟',
+    'صراحه  |  المواقف الصعبة تضعف لك ولا ترفع؟',
+    'صراحه  |  نظرة و يفسد الصداقة؟',
+    'صراحه  |  ‏‏إذا أحد قالك كلام سيء بالغالب وش تكون ردة فعلك؟',
+    'صراحه  |  شخص معك بالحلوه والمُره؟',
+    'صراحه  |  ‏هل تحب إظهار حبك وتعلقك بالشخص أم ترى ذلك ضعف؟',
+    'صراحه  |  تأخذ بكلام اللي ينصحك ولا تسوي اللي تبي؟',
+    'صراحه  |  وش تتمنى الناس تعرف عليك؟',
+    'صراحه  |  ابيع المجرة عشان؟',
+    'صراحه  |  أحيانا احس ان الناس ، كمل؟',
+    'صراحه  |  مع مين ودك تنام اليوم؟',
+    'صراحه  |  صدفة العمر الحلوة هي اني؟',
+    'صراحه  |  الكُره العظيم دايم يجي بعد حُب قوي " تتفق؟',
+    'صراحه  |  صفة تحبها في نفسك؟',
+    'صراحه  |  ‏الفقر فقر العقول ليس الجيوب " ، تتفق؟',
+    'صراحه  |  تصلي صلواتك الخمس كلها؟',
+    'صراحه  |  ‏تجامل أحد على راحتك؟',
+    'صراحه  |  اشجع شيء سويتة بحياتك؟',
+    'صراحه  |  وش ناوي تسوي اليوم؟',
+    'صراحه  |  وش شعورك لما تشوف المطر؟',
+    'صراحه  |  غيرتك هاديه ولا تسوي مشاكل؟',
+    'صراحه  |  ما اكثر شي ندمن عليه؟',
+    'صراحه  |  اي الدول تتمنى ان تزورها؟',
+    'صراحه  |  متى اخر مره بكيت؟',
+    'صراحه  |  تقيم حظك ؟ من عشره؟',
+    'صراحه  |  هل تعتقد ان حظك سيئ؟',
+    'صراحه  |  شـخــص تتمنــي الإنتقــام منـــه؟',
+    'صراحه  |  كلمة تود سماعها كل يوم؟',
+    'صراحه  |  **هل تُتقن عملك أم تشعر بالممل؟',
+    'صراحه  |  هل قمت بانتحال أحد الشخصيات لتكذب على من حولك؟',
+    'صراحه  |  متى آخر مرة قمت بعمل مُشكلة كبيرة وتسببت في خسائر؟',
+    'صراحه  |  ما هو اسوأ خبر سمعته بحياتك؟',
+    '‏صراحه | هل جرحت شخص تحبه من قبل ؟',
+    'صراحه  |  ما هي العادة التي تُحب أن تبتعد عنها؟',
+    '‏صراحه | هل تحب عائلتك ام تكرههم؟',
+    '‏صراحه  |  من هو الشخص الذي يأتي في قلبك بعد الله – سبحانه وتعالى- ورسوله الكريم – صلى الله عليه وسلم؟',
+    '‏صراحه  |  هل خجلت من نفسك من قبل؟',
+    '‏صراحه  |  ما هو ا الحلم  الذي لم تستطيع ان تحققه؟',
+    '‏صراحه  |  ما هو الشخص الذي تحلم به كل ليلة؟',
+    '‏صراحه  |  هل تعرضت إلى موقف مُحرج جعلك تكره صاحبهُ؟',
+     '‏صراحه  |  هل قمت بالبكاء أمام من تُحب؟',
+    '‏صراحه  |  ماذا تختار حبيبك أم صديقك؟',
+    '‏صراحه  | هل حياتك سعيدة أم حزينة؟',
+    'صراحه  |  ما هي أجمل سنة عشتها بحياتك؟',
+    '‏صراحه  |  ما هو عمرك الحقيقي؟',
+    '‏صراحه  |  ما اكثر شي ندمن عليه؟',
+    'صراحه  |  ما هي أمنياتك المُستقبلية؟‏',
+]
+  client.on('message', message => {
+if (message.content.startsWith('$صراحه')) {
+    if(!message.channel.guild) return message.reply('** This command only for servers **');
+ var client= new Discord.RichEmbed()
+ .setTitle("لعبة صراحة ..")
+ .setColor('RANDOM')
+ .setDescription(`${Sra7a[Math.floor(Math.random() * Sra7a.length)]}`)
+ .setImage("https://cdn.discordapp.com/attachments/371269161470525444/384103927060234242/125.png")
+                 .setTimestamp()
  
-});
- let url = message.author.displayAvatarURL.endsWith(".webp") ? message.author.displayAvatarURL.slice(5, -20) + ".png" : message.author.displayAvatarURL;
-               jimp.read(url, (err, ava) => {
-                    if (err) return console.log(err);
-                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                        if (err) return console.log(err);
-                       
-                      
-                        ctx.font = '15px Arial';
-                              ctx.fontSize = '10px';
-                              ctx.fillStyle = "#FFFFFF";
-                              ctx.textAlign = "center";
-              ctx.fillText(`${item.type} ` , 250, 100);
-              
-               let Avatar = Canvas.Image;
-                              let ava = new Avatar;
-                              ava.src = buf;
-                              ctx.beginPath();
-                              ctx.arc(70, 80, 63, 0, Math.PI*2);
-                                 ctx.closePath();
-                                 ctx.clip();
-                                 ctx.drawImage(ava, 8, 18, 128, 126);   
-message.channel.sendFile(canvas.toBuffer());
- })
-             
-                       message.channel.awaitMessages(filter,{
-               thing: true,
-               maxMatches : 1,
-                time : 60000,
-                 maxUses: 1,
-                errors : ['time']
-            })//وقت الاجابة
-                      .then((collected) => {
-                           var embed = new Discord.RichEmbed()
-                            .setDescription(`${collected.first().author} ✅ **احسنت لقد تمكنت من أجابه عن معادله بسرعه**`)
-                 message.channel.send(embed);
-                  console.log(`[Typing] ${collected.first().author} typed the word.`);
-                          let won = collected.first().author;
-                          points[won.id].points++;
-                        })
-                        .catch(collected => {
-                       var embed1 = new Discord.RichEmbed()
-                            .setDescription(`:x: **لم يتمكن احد من حل معادله في الوقت المناسب**`)
-                 message.channel.send(embed1);
-                    console.log('[Typing] Error: No one type the word.');
-           
-                  })
-                })
-             
-  })
-}
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-client.on('message', message => {
-      if(message.author.bot) return;
-if (message.content.startsWith(prefix + 'top')) {
-    let _top = 1;
-     let topp = Object.values(points);
- let top = topp.slice(0, 10).map(users => `**\`.${_top++}\` | <@${users.id}> \`XP: ${users.points}\`**`).sort((a, b) => a > b).join('\n');
-    const prefixlor = new Discord.RichEmbed()
-      .setTitle("Leaderboard")
-      .setAuthor(client.user.username, client.user.avatarURL)
-      .setDescription(top,true)
-   
-  	message.channel.sendEmbed(prefixlor)
-}
-  
-});
-
-client.on('message', message => {
-      if(message.author.bot) return;
-if (message.content.startsWith(prefix + 'نقاطي')) {
-	if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
-	let userData = points[message.author.id];
-	let embed = new Discord.RichEmbed()
-    .setAuthor(`${message.author.tag}`, message.author.avatarURL)
-	.setColor('#000000')
-	.setDescription(`نقاطك: \`${userData.points}\``)
-	message.channel.sendEmbed(embed)
-  }
-});
-client.on('message', message => {
-  if(message.author.bot) return;
-if (message.content.startsWith(prefix + 'points')) {
-if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
-let userData = points[message.author.id];
-let embed = new Discord.RichEmbed()
-.setAuthor(`${message.author.tag}`, message.author.avatarURL)
-.setColor('#000000')
-.setDescription(`نقاطك: \`${userData.points}\``)
-message.channel.sendEmbed(embed)
+  message.channel.sendEmbed(client);
+  message.react("??")
 }
 });
+
+const secre = [
+  "**لو خيروك بين العيش وحدك في جزيرة كبيرة منعزلة مع أكبر درجات الرفاهية وبين العيش في مكان قديم ولكن مع أصدقائك المقربين**.",
+  "**لو خيروك بين فقدان ذاكرتك والعيش مع أصدقائك وأقربائك أو بقاء ذاكرتك ولكن العيش وحيد**.",
+  "**للو خيروك بين تناول الخضار والفاكهة طوال حياتك أو تناول اللحوم**.",
+  "**لو خيروك بين رؤية الأشباح فقط أو سماع صوتها فقط**.",
+  "**لو خيروك بين القدرة على سماع أفكار الناس أو القدرة على العودة في الزمن للخلف**.", 
+  "**لو خيروك بين القدرة على الاختفاء أو القدرة على الطيران**.", 
+  "**لو خيروك بين أن تعيش 5 دقائق في الماضي أو أن تعيشها في المستقبل**.", 
+  "**لو خيروك بين 5 ملايين دولار أو 5 ملايين لحظة سعادة حقيقيةا**.", 
+  "**لو خيروك بين الاعتذار عن خطأ اقترفته أو أن يقدم لك شخص أخطأ في حقق اعتذار**.", 
+  "**لو خيروك بين الحقد أو المسامحة**.", 
+  "**لو خيروك بين إنقاذ نفسك أو إنقاذ شخص وقد يعرضك ذلك للأذى**.",
+  "**لو خيروك بين أن تعيش في القرن الرابع عشر أو القرن الحالي**.", 
+  "**لو خيروك بين امتلاك سرعة الفهد أو دهاء الثعلب**.", 
+  "**لو خيروك بين أن تحصل على درجة كاملة في كامل اختباراتك القادمة والسابقة أو أن تسافر إلى بلد تحبه**.", 
+  "**لو خيروك بين العيش بجانب الجبال والحدائق والأشجار أو العيش بجانب البحر**.", 
+  "**لو خيروك بين تحقيق 3 أمنيات (لا تتعلق بأشخاص) أو اختيار 3 أشخاص للعيش معهم طوال حياتك**.", 
+  "**لو خيروك بين النوم في غابة مظلمة أو على ظهر سفينة في يوم عاصف**.", 
+  "**لو خيروك بين المال أو الجمال**.", 
+  "**لو خيروك بين المال أو الذكاء**.", 
+  "**لو خيروك بين المال أو الصحة**.", 
+  "**لو خيروك بين الجمال أو الذكاء**.", 
+  "**لو خيروك بين الذكاء أو الصحة**.", 
+  "**لو خيروك بين إرسال رسالة صوتية لأمك مدة دقيقة كاملة لا تحتوي إلا على صراخك وخوفك، أو كسر بيضة نيئة على رأسك**.", 
+]
+
+
+ client.on('message', message => {
+   if (message.content.startsWith("$لو خيروك")) {
+                if(!message.channel.guild) return message.reply('** This command only for servers**');
+  var embed = new Discord.RichEmbed()
+  .setColor('RANDOM')
+
+   .setThumbnail(message.author.avatarURL) 
+ .addField('لعبه لو خيروك' ,
+  `${secre[Math.floor(Math.random() * secre.length)]}`)
+  message.channel.sendEmbed(embed);
+  console.log('[id] Send By: ' + message.author.username)
+    }
+});
+
 
 client.on('message' , message => {
   if(message.author.bot) return;
