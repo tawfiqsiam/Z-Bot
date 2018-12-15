@@ -1847,8 +1847,6 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 		if (!message.member.voiceChannel) return ee(message,`You Should Be in A Voice Channel To Use This Command.`);
 			serverQueue.songs.splice(1, 0, serverQueue.songs[0])
 			e(message, `**${serverQueue.songs[0].title}**, Will be repeated`);
-			return undefined;
-		}
 	} else if (command === `np`) {
 		if (!serverQueue) return msg.channel.send('لا يوجد شيء حالي ف العمل.');
 		const embedNP = new Discord.RichEmbed()
