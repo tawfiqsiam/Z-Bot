@@ -3942,7 +3942,7 @@ const log = JSON.parse(fs.readFileSync('./log.json' , 'utf8'));
 client.on('message', message => {
     let room = message.content.split(" ").slice(1);
     let findroom = message.guild.channels.find('name', `${room}`)
-    if(message.content.startsWith(prefix + "setlog")) {
+    if(message.content.startsWith(prefix + "setLog")) {
 if (message.author.bot) return;
         if(!message.channel.guild) return message.reply('**This Command is Just For Servers!**');
         if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
