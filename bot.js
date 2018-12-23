@@ -59,7 +59,7 @@ client.on('guildMemberAdd', message => {
   .addField("You Are Member No.",`${message.guild.memberCount}`)
   .addField("Server Owner: ",`${message.guild.owner.user.tag}`)
   .addField("Server ID: ",`${message.guild.id}`);
-        message.author.send(embed)
+        message.author.sendEmbed(embed)
   });
 
 
