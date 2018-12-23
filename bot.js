@@ -50,17 +50,7 @@ client.on('ready', () => {//MRX - DEV
 //MRX - DEV
 
   });
- 
-client.on('guildMemberAdd', message => {
-    var embed = new Discord.RichEmbed()
-   .setColor("#08f025")
-  .setTitle(`${message.guild.name}`)
-  .addField("Your Name:", `${message}`)
-  .addField("You Are Member No.",`${message.guild.memberCount}`)
-  .addField("Server Owner: ",`${message.guild.owner.user.tag}`)
-  .addField("Server ID: ",`${message.guild.id}`);
-        message.author.sendEmbed(embed)
-  });
+
 
 
 client.on('message', message => {
