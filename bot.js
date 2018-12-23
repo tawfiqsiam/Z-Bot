@@ -587,7 +587,7 @@ client.on('message', message => { //By |.iiMostafaYT#1001
             .setAuthor(client.user.username,client.user.avatarURL) //By |.iiMostafaYT#1001
             .setThumbnail(client.user.avatarURL) //By |.iiMostafaYT#1001
             .setColor('RANDOM') //By |.iiMostafaYT#1001
-            .setTitle('Info SkyBot.') //By |.iiMostafaYT#1001
+            .setTitle('Info Z Bot') //By |.iiMostafaYT#1001
             .addField('**My Ping**' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true) //By |.iiMostafaYT#1001
             .addField('**RAM Usage**', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true) //By |.iiMostafaYT#1001
             .addField('**Servers**', [client.guilds.size], true) //By |.iiMostafaYT#1001
@@ -2122,7 +2122,7 @@ function isYoutube(str) {
 
  client.on('message', message => {
 
-     if (message.content === prefix +"help") {
+     if (message.content === prefix + "help-music") {
 
     const embed = new Discord.RichEmbed()
 
@@ -2543,7 +2543,7 @@ client.on('message', message => {
         .setFooter('SFARI server', client.user.avatarURL);
         message.channel.sendEmbed(embed)
     };
-    if (message.content == "فكك") {    
+    if (message.content == "$فكك") {    
         var x = ['ضفدع', 'طيارة', 'رعودي', 'تفكيك', 'تجربة', 'مدرسة', 'معلم' , 'نقاط' , 'اكسيفو' , 'مكوه' , 'هكونا مطاطا' , 'اكسيفو ذا بيست'];
         var x2 = ['ض ف د ع', 'ط ي ا ر ة', 'ر ع و د ي', 'ت ف ك ي ك', 'ت ج ر ب ة', 'م د ر س ة', 'م ع ل م', 'ن ق ا ط', 'ا ك س ي ف و', 'م ك و ه', 'ه ك و ن ا م ط ا ط ا', 'ا ك س ي ف و ذ ا ب ي س ت'];
         var x3 = Math.floor(Math.random()*x.length)
@@ -2569,11 +2569,11 @@ client.on('message', message => {
     fs.writeFile('points.json', JSON.stringify(points), (err) => {
         if (err) console.error(err);
     })
-	    if (message.content == "ركب") {    
+	    if (message.content == "$ركب") {    
         var x = ['ض ف د ع', 'ط ي ا ر ة', 'ر ع و د ي', 'ت ف ك ي ك', 'ت ج ر ب ة', 'م د ر س ة', 'م ع ل م', 'ن ق ا ط', 'ا ك س ي ف و', 'م ك و ه', 'ه ك و ن ا م ط ا ط ا', 'ا ك س ي ف و ذ ا ب ي س ت'];
 		var x2 = ['ضفدع', 'طيارة', 'رعودي', 'تفكيك', 'تجربة', 'مدرسة', 'معلم' , 'نقاط' , 'اكسيفو' , 'مكوه' , 'هكونا مطاطا' , 'اكسيفو ذا بيست'];
         var x3 = Math.floor(Math.random()*x.length)
-        message.channel.send(`ركب الكلمة  الآتية :${x[x3]}, لديك 20 ثانية`).then(msg1=> {
+        message.channel.send(`ركب الكلمة  الآتية : ${x[x3]} , لديك 20 ثانية`).then(msg1=> {
             var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
                 maxMatches : 1,
                 time : 20000,
@@ -2587,7 +2587,7 @@ client.on('message', message => {
 
             points[message.author.id].points +=1
             message.channel.send(`✅ لقد قمت بكتابة الجواب الصحيح بالوقت المناسب
- ─═════**{نقاطك:${points[message.author.id].points}}**═════─`);
+ ─═════**{نقاطك: ${points[message.author.id].points}}**═════─`);
                message.channel.sendEmbed(embed)
         })
         })
@@ -2595,7 +2595,7 @@ client.on('message', message => {
     fs.writeFile('points.json', JSON.stringify(points), (err) => {
         if (err) console.error(err);
     })
-	    if (message.content == "رياضيات") {    
+	    if (message.content == "$رياضيات") {    
         var x = ['50×50', '1000000×1', '89×10', '90×5', '30×3', '10×10', '1000×1000', '44,5+44,5'];
 		var x2 = ['2500', '1000000', '890', '450', '90', '100', '1000000' , '89'];
         var x3 = Math.floor(Math.random()*x.length)
@@ -2622,7 +2622,7 @@ client.on('message', message => {
         if (err) console.error(err);
     })
 	
-  if (message.content == "عواصم") {
+  if (message.content == "$عواصم") {
         var x = ['اليمن', 'مصر', 'الجزائر', 'السعودية', 'الصومال', 'العراق' , 'الامارات' , 'سوريا' , 'المغرب'];
         var x2 = ['صنعاء', 'القاهرة', 'الجزائر', 'الرياض', 'الخرطوم', 'بغداد', 'ابو ظبي','دمشق ','الر باط'];
         var x3 = Math.floor(Math.random()*x.length)
@@ -2648,7 +2648,7 @@ client.on('message', message => {
     fs.writeFile('points.json', JSON.stringify(points), (err) => {
         if (err) console.error(err);
     })
-    if (message.content == "لغز") {
+    if (message.content == "$لغز") {
         var x = ['كلي ثقوب ومع ذلك أحفظ الماء فمن أكون ؟', 'ما هو الشيء الذي يمشي و يقف وليس له أرجـل ؟', 'ما هو الشئ الذي يرفع اثقال ولا يقدر يرفع مسمار ؟', 'يسمع بلا أذن ويتكلم بلا لسان فما هو ؟', 'ماهو الشيء الذي يكتب و لا يقرأ ؟', 'ماهو الشيء الذي يكون اخضر في الارض واسود في السوق واحمــر في البيت ؟', 'عائلة مؤلفة من 6 بنات وأخ لكل منهن، فكم عدد أفراد العائلة ؟', 'يتحرك دائماً حواليك لكنك لاتراه فما هو ؟' ,'ما هو البليون ؟'];
         var x2 = ['الاسفنج', 'الساعة', 'البحر', 'التلفون', 'العمر', 'الشاي', 'سبعة اشخاص' ,'الهواء' ,'الف مليون'];
         var x3 = Math.floor(Math.random()*x.length)
@@ -2674,7 +2674,7 @@ client.on('message', message => {
     fs.writeFile('points.json', JSON.stringify(points), (err) => {
         if (err) console.error(err);
     })
-  if (message.content == "تحدي") {    
+  if (message.content == "$تحدي") {    
         var x = ['ف ض ع د', 'ص ش خ', 'ة د ا ر ج', 'ا ر ي ة س', 'ي ت ب', 'ئ ا ع ل ة', ' ا ش ي', 'ن ح و ي ا', 'س د و ي ك ر د', 'ر ط ي ا ة' , 'ن ح ز ل و', 'ك ا ف ي س و'];
         var x2 = ['ضفدع', 'شخص', 'دراجة', 'سيارة', 'بيت', 'عائلة', 'شاي', 'حيوان', 'ديسكورد', 'طيارة', 'حلزون', 'اكسيفو'];
         var x3 = Math.floor(Math.random()*x.length)
@@ -2707,7 +2707,7 @@ client.on('message', message => {
     if (!points[message.author.id]) points[message.author.id] = { 
         points: 0,
       };
-    if (message.content.startsWith(prefix + 'ايموجي')) { 
+    if (message.content.startsWith(prefix + '$ايموجي')) { 
         if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
     
     const type = require('./emojis.json'); 
@@ -4076,16 +4076,26 @@ client.on("guildMemberAdd", async member => {
   });
 
 client.on('message', function(message) {
+
     if (message.channel.type === "dm") {
+
         if (message.author.id === client.user.id) return;
-        var RaYaN= new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setTimestamp()
-        .setTitle('``New Message in private``')
-        .setThumbnail(`${message.author.avatarURL}`)
-        .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
-        .setFooter(`From **${message.author.tag} (${message.author.id})**`)
-    client.channels.get("523196116620017684").send({embed:RaYaN});
+
+        var stewart = new Discord.RichEmbed()
+
+            .setColor('RANDOM')
+
+            .setTimestamp()
+
+            .setTitle('``رساله جديده في خاص البوت``')
+
+            .setThumbnail(`${message.author.avatarURL}`)
+
+            .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
+
+            .setFooter(`من (@${message.author.tag})  |  (${message.author.id})`)
+
+        client.channels.get("523196116620017684").send({ embed: stewart }); //523196116620017684
     }
 });
 
