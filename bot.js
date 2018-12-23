@@ -54,13 +54,19 @@ client.on('ready', () => {//MRX - DEV
 
 
 
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`:rose:  ولكم نورت السيرفر:rose: 
-:crown:اسم العضو  ${member}:crown:  
-انت العضو رقم ${member.guild.memberCount} `) 
-}).catch(console.error)
-})
+client.on("guildMemberAdd", message => {
+    
+  var embed = new Discord.RichEmbed()
+  .setColor("#08f025")
+  .setTitle("Welcome To: ", `${message.guild.name}`)
+  .addField("Your Name:", `${message}`)
+  .addField("You Are Member No.",`${message.guild.memberCount}`)
+  .addField("Server Owner: ",`${message.guild.owner.user.tag}`)
+  .addField("Server ID: ",`${message.guild.id}`);
+  
+  message.author.sendEmbed(embed);
+  message.react("✅");
+});
 
 client.on('message', message => {
 
