@@ -1105,39 +1105,49 @@ client.on('guildCreate', guild => {
                                    
  client.on('guildCreate', guild => {
    
-  client.channels.get("513426629431918632")
- const embed = new Discord.RichEmbed()
-   .setAuthor(`بوتك دخل سيرفر جديد مبروك ✅`)
-   .setDescription(`**
- Server name: __${guild.name}__
- Server id: __${guild.id}__
- Server owner: __${guild.owner}__
- Member Count: __${guild.memberCount}__
- Servers Counter : __${client.guilds.size}__**`)
-         .setColor("#f3ae10")
-         .addField("New Server!")
-         .setFooter('Z Bot ✨' , client.user.avatarURL)
-           client.channels.get("513426629431918632").send({embed}); //Sup
- }
+  client.users.get("502437783651090432").send(
+    "\n" + "**" + " ● New Server : " + "**" +
+    "\n" + "**" + "● Server :" + "**" +
+    "\n" + "**" + "» " + guild.name + "**" +
+    "\n" + "**" + " ● ID : " + "**" +
+    "\n" + "**" + "» " + guild.id + "**" +
+    "\n" + "**" + " ● Owner : " + "**" +
+    "\n" + "**" + "» " + guild.owner + "**" +
+    "\n" + "**" + " ● Member Count : " + "**" +
+    "\n" + "**" + "» " + guild.memberCount + "**" +
+    "\n" + "**" + " ● Bot Server Count : " + "**" +
+    "\n" + "**" + "» " + client.guilds.size + "**" +
+    "\n" + "**" + " ● Bot Users Count : " + "**" +
+    "\n" + "**" + "» " + client.users.size + "**" +
+    "\n" + "**" + " ● Server Roles : " + "**" +
+    "\n" + "**" + "» " + guild.roles.size + "**" +
+    "\n" + "**" + " ● Server Created At : " + "**" +
+    "\n" + "**" + "» " + guild.createdAt.toLocaleString() + "**")
  
-);
+})
 
 client.on('guildDelete', guild => {
-  client.channels.get("513426629431918632")
- const embed = new Discord.RichEmbed()
-   .setAuthor(`Z Bot ✨ left a server ❎`)
-   .setDescription(`**
- Server name: __${guild.name}__
- Server id: __${guild.id}__
- Server owner: __${guild.owner}__
- Members Count: __${guild.memberCount}__
- Servers Counter : __${client.guilds.size}__**`)
-         .setColor("#f3ae10")
-         .setFooter('Z Bot ✨' , client.user.avatarURL)
-           client.channels.get("513426629431918632").send({embed});
- }
+   
+  client.users.get("502437783651090432").send(
+    "\n" + "**" + " ● Left Server : " + "**" +
+    "\n" + "**" + "● Server :" + "**" +
+    "\n" + "**" + "» " + guild.name + "**" +
+    "\n" + "**" + " ● ID : " + "**" +
+    "\n" + "**" + "» " + guild.id + "**" +
+    "\n" + "**" + " ● Owner : " + "**" +
+    "\n" + "**" + "» " + guild.owner + "**" +
+    "\n" + "**" + " ● Member Count : " + "**" +
+    "\n" + "**" + "» " + guild.memberCount + "**" +
+    "\n" + "**" + " ● Bot Server Count : " + "**" +
+    "\n" + "**" + "» " + client.guilds.size + "**" +
+    "\n" + "**" + " ● Bot Users Count : " + "**" +
+    "\n" + "**" + "» " + client.users.size + "**" +
+    "\n" + "**" + " ● Server Roles : " + "**" +
+    "\n" + "**" + "» " + guild.roles.size + "**" +
+    "\n" + "**" + " ● Server Created At : " + "**" +
+    "\n" + "**" + "» " + guild.createdAt.toLocaleString() + "**")
  
-);
+});
 
    
               
