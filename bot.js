@@ -1739,8 +1739,6 @@ collector7.on('collect', r => {
 
 var servers = [];
 
-var queue = [];
-
 var guilds = [];
 
 var queueNames = [];
