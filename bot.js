@@ -53,6 +53,15 @@ client.on('ready', () => {//MRX - DEV
 
   });
 
+client.on('message', message => {
+  if(message.content.startsWith("."))
+  
+  message.channel.send(`**Welcome To __${message.guild.name}__**`);
+  
+  
+  
+});
+
 
 
 client.on('message', message => {
