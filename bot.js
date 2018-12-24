@@ -3522,8 +3522,8 @@ client.on("guildMemberAdd", member => {
         .setColor('RANDOM')
         .setThumbnail(h.avatarURL)
         .setAuthor(h.username,h.avatarURL)
-        .addField(': تاريخ دخولك الدسكورد',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(member.user.createdAt).fromNow()}\``,true)
-         .addField(': تاريخ دخولك السيرفر',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} \n\`\`${moment(member.joinedAt).startOf(' ').fromNow()}\`\``, true)
+        .addField(': Date You Joined Discord',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(member.user.createdAt).fromNow()}\``,true)
+         .addField(': Date You Joined The Server',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} \n\`\`${moment(member.joinedAt).startOf(' ').fromNow()}\`\``, true)
          .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
      welcomer.send({embed:heroo});
  
@@ -3666,14 +3666,14 @@ client.on('guildMemberAdd',async member => {
             ctx.font = '36px Arial';
             ctx.fontSize = '72px';
             ctx.fillStyle = "#ffffff";
-            ctx.textAlign = "center";
+            ctx.textAlign = "left";
             ctx.fillText(member.user.username, 545, 177);
            
             ctx.font = '22px Arial Bold';
             ctx.fontSize = '72px';
             ctx.fillStyle = "#ffffff";
             ctx.textAlign = "center";
-            ctx.fillText(`${member.guild.memberCount} Members`, 580, 200);
+            ctx.fillText(`${member.guild.memberCount} Members`, 580, 140);
            
             let Avatar = Canvas.Image;
             let ava = new Avatar;
