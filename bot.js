@@ -3669,7 +3669,7 @@ client.on('guildMemberAdd',async member => {
             ctx.textAlign = "center";
             ctx.fillText(member.user.username, 545, 177);
            
-            ctx.font = '16px Arial Bold';
+            ctx.font = '22px Arial Bold';
             ctx.fontSize = '72px';
             ctx.fillStyle = "#ffffff";
             ctx.textAlign = "center";
