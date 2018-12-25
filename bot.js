@@ -65,7 +65,7 @@ client.on('message', message => {
 client.on('message', message => {//new msg event
 if(!message.channel.guild) return;
   if(message.content.startsWith(prefix + 'set')) {//to create the rainbow role
-	  let role = message.guild.roles.find('name', 'Rainbow bot.')
+	  let role = message.guild.roles.find('name', 'Z Rainbow')
     if(role) return message.channel.send(`This Step Already Completed !`)//if the role already created return with this msg
   //start of create role 
   if(!role){
@@ -83,7 +83,7 @@ message.channel.send('Done The Rainbow Role Setup Has Been Completed')//if the s
 client.on('ready', () => {//new ready event
   setInterval(function(){
       client.guilds.forEach(g => {
-                  var role = g.roles.find('name', 'Rainbow bot.');//rainbow role name
+                  var role = g.roles.find('name', 'Z Rainbow');//rainbow role name
                   if (role) {
                       role.edit({color : "RANDOM"});
                   };
