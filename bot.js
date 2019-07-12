@@ -121,8 +121,8 @@ var bc = new
    Discord.RichEmbed()
    .setColor('RANDOM')
    .setTitle('Broadcast')
-   .addField('سيرفر', message.guild.name)
-   .addField('المرسل', message.author.username)
+   .addField('Malicious Community`)
+   .addField('نوع الرسالة : برادكسات  مدفوع)
    .addField('الرسالة', args)
    .setThumbnail(message.author.avatarURL)
    .setFooter(copy, client.user.avatarURL);
